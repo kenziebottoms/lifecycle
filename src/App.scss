@@ -6,13 +6,48 @@ $g4: darken($g3, 10%);
 $g5: darken($g4, 10%);
 $g6: darken($g5, 10%);
 
+$blue: #2996df;
+$blue-hl: saturate(lighten($blue, 10%), 10%);
+
+$headerFont: 'Staatliches', serif;
+$bodyFont: 'Sarabun', sans-serif;
+
 body {
-    font-family: 'Sarabun', sans-serif;
+    font-family: $bodyFont;
+    font-size: 14pt;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     color: $g6;
-    font-family: 'Staatliches';
+    font-family: $headerFont;
     @extend %h !optional;
+}
+
+.app {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+button {
+    border: none;
+    background: white;
+    border-radius: .25rem;
+    background: $blue;
+    color: $white;
+    font-family: $headerFont;
+    font-weight: 400;
+    padding: .75em;
+    margin: 2em auto;
+    cursor: pointer;
+    &:hover {
+        background: $blue-hl;
+    }
+    &.big {
+        font-size: 3em;
+        align-self: center;
+    }
 }

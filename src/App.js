@@ -11,22 +11,12 @@ class App extends Component {
   }
   render() {
     return (
-      <html>
-        <head>
-          <link
-            href="https://fonts.googleapis.com/css?family=Sarabun|Staatliches"
-            rel="stylesheet"
-          />
-        </head>
-        <body>
-          <div className="app">
-            <header className="header">
-              <h1>Lifecycle</h1>
-            </header>
-            <Turn active={this.state.myTurn} />
-          </div>
-        </body>
-      </html>
+      <div className="app">
+        <header className="header">
+          <h1>Lifecycle</h1>
+        </header>
+        <Turn active={this.state.myTurn} />
+      </div>
     );
   }
 }
