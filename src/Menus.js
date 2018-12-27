@@ -14,15 +14,15 @@ class Menus extends Component {
     };
   }
 
-  updateUser(user) {
+  updateCharacter(char) {
     let state = JSON.parse(JSON.stringify(this.state));
-    state.user = user;
+    state.character = char;
     this.setState(state);
   }
 
   render() {
-    if (!this.state.user) {
-      return <IntroForm submit={user => this.updateUser(user)} />;
+    if (!this.state.character) {
+      return <IntroForm submit={char => this.updateCharacter(char)} />;
     }
     if (this.state.phase === PHASES.INACTIVE) {
       return (
@@ -44,5 +44,4 @@ class Menus extends Component {
     );
   }
 }
-
 export default Menus;

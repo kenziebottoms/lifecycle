@@ -6,8 +6,26 @@ class IntroForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: this.props.user
+      speed: 30,
+      name: null,
+      class: null,
+      race: null
     };
+    this.updateClass = this.updateClass.bind(this);
+    this.updateRace = this.updateRace.bind(this);
+  }
+
+  updateClass(charClass) {
+    let state = JSON.parse(JSON.stringify(this.state));
+    state.class = charClass;
+    this.setState(state);
+  }
+
+  updateRace(race, speed) {
+    let state = JSON.parse(JSON.stringify(this.state));
+    state.race = race;
+    state.speed = speed;
+    this.setState(state);
   }
 
   render() {
@@ -16,8 +34,13 @@ class IntroForm extends Component {
         <h3>New app who dis</h3>
         <input id="name" type="text" placeholder="Name" />
         <input id="character" type="text" placeholder="Character name" />
-        <ClassDropdown />
-        <RaceDropdown />
+        <ClassDropdown onChange={this.updateClass} />
+        <RaceDropdown onChange={this.updateRace} />
+        <label htmlFor="speed">Walking Speed</label>
+        <section>
+          <input id="speed" type="number" value={this.state.speed} readOnly />{" "}
+          feet
+        </section>
       </form>
     );
   }
