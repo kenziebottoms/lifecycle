@@ -1,12 +1,11 @@
-$blue: #2996df;
-$blue-hl: saturate(lighten($blue, 10%), 10%);
+@import 'colors';
 
 .menus {
     display: flex;
     height: 100%;
     justify-content: center;
     > div {
-        flex-basis: 50%;
+        flex-grow: 1;
         &.active {
             > h2 {
                 background: $blue;
@@ -15,5 +14,13 @@ $blue-hl: saturate(lighten($blue, 10%), 10%);
                 color: #fff;
             }
         }
+    }
+}
+#action {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    > div {
+        flex-grow: 1;
     }
 }

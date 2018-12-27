@@ -1,16 +1,5 @@
-$white: #fff;
-$g1: darken($white, 4%);
-$g2: darken($g1, 10%);
-$g3: darken($g2, 10%);
-$g4: darken($g3, 10%);
-$g5: darken($g4, 10%);
-$g6: darken($g5, 10%);
-
-$blue: #2996df;
-$blue-hl: saturate(lighten($blue, 10%), 10%);
-
-$headerFont: 'Staatliches', serif;
-$bodyFont: 'Sarabun', sans-serif;
+@import 'colors';
+@import 'fonts';
 
 body {
     margin: auto;
