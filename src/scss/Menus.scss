@@ -1,0 +1,19 @@
+$blue: #2996df;
+$blue-hl: saturate(lighten($blue, 10%), 10%);
+
+.menus {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    > div {
+        flex-basis: 50%;
+        &.active {
+            > h2 {
+                background: $blue;
+                margin: 0;
+                padding: .25em 0;
+                color: #fff;
+            }
+        }
+    }
+}

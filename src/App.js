@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "./App.scss";
-import Turn from "./Turn";
+import "./scss/App.scss";
+import Menus from "./Menus";
 
 class App extends Component {
   constructor(props) {
@@ -8,6 +8,7 @@ class App extends Component {
     this.state = {
       myTurn: false
     };
+    console.log(this.state);
   }
   render() {
     return (
@@ -15,7 +16,7 @@ class App extends Component {
         <header className="header">
           <h1>Lifecycle</h1>
         </header>
-        <Turn active={this.state.myTurn} />
+        <Menus active={this.state.myTurn} />
       </div>
     );
   }

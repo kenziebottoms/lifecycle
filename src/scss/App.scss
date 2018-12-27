@@ -1,5 +1,5 @@
 $white: #fff;
-$g1: darken($white, 10%);
+$g1: darken($white, 4%);
 $g2: darken($g1, 10%);
 $g3: darken($g2, 10%);
 $g4: darken($g3, 10%);
@@ -13,23 +13,32 @@ $headerFont: 'Staatliches', serif;
 $bodyFont: 'Sarabun', sans-serif;
 
 body {
+    margin: auto;
     font-family: $bodyFont;
     font-size: 14pt;
 }
 
 h1, h2, h3, h4, h5, h6 {
+    margin: .5em 0;
     font-weight: 400;
     color: $g6;
     font-family: $headerFont;
     @extend %h !optional;
 }
 
+header {
+    background: $g1;
+    h1 {
+        margin: .25em 0;
+    }
+}
+
 .app {
     width: 100%;
     height: 100vh;
     text-align: center;
-    display: grid;
-    grid-template-rows: auto 1fr;
+    display: flex;
+    flex-direction: column;
 }
 
 button {
