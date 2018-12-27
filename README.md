@@ -13,6 +13,11 @@ you should probably get your shit together. Or use this turn manager.
 
 ---
 
+## Resources
+- [BTMorton's D&D 5e JSON documentation.](https://github.com/BTMorton/dnd-5e-srd/tree/master/json)
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

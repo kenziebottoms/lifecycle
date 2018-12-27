@@ -1,0 +1,40 @@
+@import 'colors';
+@import 'fonts';
+
+form {
+    margin: 1rem auto;
+    input, select {
+        display: block;
+        border-radius: .25rem;
+        box-sizing: border-box;
+        width: 100%;
+        margin: .5rem 0;
+        border: 1px solid $g2;
+        font-family: $bodyFont;
+        font-size: 1rem;
+        padding: .25rem;
+        &::placeholder {
+            color: $g4;
+        }
+    }
+}
+
+button {
+    border: none;
+    background: white;
+    border-radius: .25rem;
+    background: $blue;
+    color: $white;
+    font-family: $headerFont;
+    font-weight: 400;
+    padding: .75em;
+    margin: 2em auto;
+    cursor: pointer;
+    &:hover {
+        background: $blue-hl;
+    }
+    &.big {
+        font-size: 3em;
+        align-self: center;
+    }
+}

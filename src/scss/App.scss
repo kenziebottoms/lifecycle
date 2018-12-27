@@ -1,5 +1,6 @@
 @import 'colors';
 @import 'fonts';
+@import 'forms';
 
 body {
     margin: auto;
@@ -28,24 +29,4 @@ header {
     text-align: center;
     display: flex;
     flex-direction: column;
-}
-
-button {
-    border: none;
-    background: white;
-    border-radius: .25rem;
-    background: $blue;
-    color: $white;
-    font-family: $headerFont;
-    font-weight: 400;
-    padding: .75em;
-    margin: 2em auto;
-    cursor: pointer;
-    &:hover {
-        background: $blue-hl;
-    }
-    &.big {
-        font-size: 3em;
-        align-self: center;
-    }
 }

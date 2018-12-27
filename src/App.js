@@ -1,22 +1,21 @@
 import React, { Component } from "react";
 import "./scss/App.scss";
+import Header from "./Header";
 import Menus from "./Menus";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      myTurn: false
+      myTurn: false,
+      user: null
     };
-    console.log(this.state);
   }
   render() {
     return (
       <div className="app">
-        <header className="header">
-          <h1>Lifecycle</h1>
-        </header>
-        <Menus active={this.state.myTurn} />
+        <Header user={this.state.user} />
+        <Menus user={this.state.user} active={this.state.myTurn} />
       </div>
     );
   }
