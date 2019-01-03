@@ -13,6 +13,7 @@ class IntroForm extends Component {
     };
     this.updateClass = this.updateClass.bind(this);
     this.updateRace = this.updateRace.bind(this);
+    this.saveChar = this.saveChar.bind(this);
   }
 
   updateClass(charClass) {
@@ -28,12 +29,26 @@ class IntroForm extends Component {
     this.setState(state);
   }
 
+  saveChar(e) {
+    e.preventDefault();
+    let char = {
+      speed: this.state.speed,
+      name: this.state.name,
+      class: this.state.class,
+      race: this.state.race
+    };
+    this.props.submit(char);
+  }
+
   render() {
     return (
       <form id="intro">
         <h3>New app who dis</h3>
-        <input id="name" type="text" placeholder="Name" />
-        <input id="character" type="text" placeholder="Character name" />
+        <input
+          value={this.state.name}
+          type="text"
+          placeholder="Character name"
+        />
         <ClassDropdown onChange={this.updateClass} />
         <RaceDropdown onChange={this.updateRace} />
         <label htmlFor="speed">Walking Speed</label>
@@ -41,6 +56,9 @@ class IntroForm extends Component {
           <input id="speed" type="number" value={this.state.speed} readOnly />{" "}
           feet
         </section>
+        <button type="submit" onClick={this.saveChar}>
+          Lessgo
+        </button>
       </form>
     );
   }
