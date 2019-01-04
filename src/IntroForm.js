@@ -11,15 +11,6 @@ class IntroForm extends Component {
       class: null,
       race: null
     };
-    this.updateClass = this.updateClass.bind(this);
-    this.updateRace = this.updateRace.bind(this);
-    this.saveChar = this.saveChar.bind(this);
-  }
-
-  updateClass(charClass) {
-    let state = JSON.parse(JSON.stringify(this.state));
-    state.class = charClass;
-    this.setState(state);
   }
 
   updateRace(race, speed) {
@@ -31,34 +22,34 @@ class IntroForm extends Component {
 
   saveChar(e) {
     e.preventDefault();
+    const data = new FormData(e.target);
     let char = {
-      speed: this.state.speed,
-      name: this.state.name,
-      class: this.state.class,
-      race: this.state.race
+      speed: data.get("speed"),
+      name: data.get("name"),
+      class: data.get("class"),
+      race: data.get("race")
     };
     this.props.submit(char);
   }
 
   render() {
     return (
-      <form id="intro">
+      <form onSubmit={e => this.saveChar(e)} id="intro">
         <h3>New app who dis</h3>
         <input
-          value={this.state.name}
+          defaultValue={this.state.name}
           type="text"
+          name="name"
           placeholder="Character name"
         />
-        <ClassDropdown onChange={this.updateClass} />
-        <RaceDropdown onChange={this.updateRace} />
+        <ClassDropdown />
+        <RaceDropdown onChange={e => this.updateRace(e)} />
         <label htmlFor="speed">Walking Speed</label>
         <section>
-          <input id="speed" type="number" value={this.state.speed} readOnly />{" "}
+          <input name="speed" type="number" defaultValue={this.state.speed} />
           feet
         </section>
-        <button type="submit" onClick={this.saveChar}>
-          Lessgo
-        </button>
+        <button type="submit">Lessgo</button>
       </form>
     );
   }

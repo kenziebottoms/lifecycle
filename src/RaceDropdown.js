@@ -20,7 +20,7 @@ class RaceDropdown extends Component {
   }
   render() {
     return (
-      <select onChange={this.handleChange} id="races">
+      <select name="race" onChange={this.handleChange} id="races">
         <option>Select a Race</option>
         {this.populateRaces()}
       </select>
