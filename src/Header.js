@@ -1,21 +1,15 @@
 import React, { Component } from "react";
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: this.props.user
-    };
-  }
-  greeting(user) {
-    if (user && user.name) return <h3>Welcome, {user.name}</h3>;
+  greeting(char) {
+    if (char && char.name) return <p>Welcome, {char.name}</p>;
     return null;
   }
   render() {
     return (
       <header className="header">
         <h1>Lifecycle</h1>
-        {this.greeting(this.state.user)}
+        {this.greeting(this.props.char)}
       </header>
     );
   }
