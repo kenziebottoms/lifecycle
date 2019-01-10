@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import MovementMenu from "./Movement";
-import AttackMenu from "./Attack";
+import CombatActionMenu from "./CombatAction";
 
 class ActionMenu extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class ActionMenu extends Component {
         <h2>Action</h2>
         <div id="action">
           <MovementMenu complete={this.state.movementComplete} />
-          <AttackMenu complete={this.state.attackComplete} />
+          <CombatActionMenu complete={this.state.attackComplete} />
         </div>
       </div>
     );

@@ -14,6 +14,13 @@ h1, h2, h3, h4, h5, h6 {
     color: $g6;
     font-family: $headerFont;
     @extend %h !optional;
+    text-align: center;
+}
+
+label {
+    font-family: $headerFont;
+    color: $g5;
+    margin-right: .5rem;
 }
 
 header {
@@ -30,7 +37,6 @@ header {
 .app {
     width: 100%;
     height: 100vh;
-    text-align: center;
     display: flex;
     flex-direction: column;
 }

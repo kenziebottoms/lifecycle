@@ -2,10 +2,14 @@
 
 .menus {
     display: flex;
-    height: 100%;
     justify-content: center;
     > div {
-        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        div {
+            height: 100%;
+            overflow-y: scroll;
+        }
         &.active {
             > h2 {
                 background: $blue;
@@ -18,9 +22,10 @@
 }
 #action {
     display: flex;
-    height: 100%;
     justify-content: center;
     > div {
         flex-grow: 1;
+        padding: 1rem;
+        box-sizing: border-box;
     }
 }
