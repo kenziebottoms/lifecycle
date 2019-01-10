@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./scss/App.scss";
 import Header from "./Header";
 import IntroForm from "./IntroForm";
+import Conditions from "./Conditions";
 import Menus from "./Menus";
 
 import constants from "./constants";
@@ -33,6 +34,7 @@ class App extends Component {
     return (
       <div className="app">
         <Header char={this.state.char} />
+        <Conditions />
         <Menus
           char={this.state.char}
           onCharacterChange={char => this.updateCharacter(char)}
