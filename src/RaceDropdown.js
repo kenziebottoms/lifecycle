@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import { Races } from "./data/races.json";
 
 class RaceDropdown extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
   populateRaces() {
     return Object.keys(Races).map((key, index) => {
       return (
@@ -15,12 +11,9 @@ class RaceDropdown extends Component {
       );
     });
   }
-  handleChange(e) {
-    this.props.onChange(e.target.value, Races[e.target.value].speed);
-  }
   render() {
     return (
-      <select name="race" onChange={this.handleChange} id="races">
+      <select name="race" id="races">
         <option>Select a Race</option>
         {this.populateRaces()}
       </select>
