@@ -9,7 +9,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin: .5em 0;
+    margin: 1em 0 .5em 0;
     font-weight: 400;
     color: $g6;
     font-family: $headerFont;
@@ -21,6 +21,11 @@ label {
     font-family: $headerFont;
     color: $g5;
     margin-right: .5rem;
+    white-space: nowrap;
+}
+
+section {
+    margin: 0.5rem 1rem;
 }
 
 header {

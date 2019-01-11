@@ -2,7 +2,8 @@ export default {
   turnStages: {
     INACTIVE: "INACTIVE",
     ACTION: "ACTION",
-    BONUS: "BONUS"
+    BONUS: "BONUS",
+    REACTION: "REACTION"
   },
   localStorageVariables: {
     CHARACTER: "lifecycleChar",

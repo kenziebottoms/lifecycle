@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./scss/Menus.scss";
 import ActionMenu from "./menus/Action";
 import BonusActionMenu from "./menus/BonusAction";
+import ReactionMenu from "./menus/Reaction";
 
 import constants from "./constants";
 let { turnStages } = constants;
@@ -22,20 +23,40 @@ class Menus extends Component {
     if (!this.props.char) return null;
     if (this.state.phase === turnStages.INACTIVE) {
       return (
-        <button
-          onClick={() => {
-            this.setState({ phase: turnStages.ACTION });
-          }}
-          className="big"
-        >
-          It's My Turn
-        </button>
+        <div>
+          <button
+            onClick={() => {
+              this.setState({ phase: turnStages.ACTION });
+            }}
+            className="biggest"
+          >
+            It's My Turn
+          </button>
+          <button
+            onClick={() => {
+              this.setState({ phase: turnStages.REACTION });
+            }}
+            className="big"
+          >
+            React
+          </button>
+        </div>
       );
     }
     return (
       <div className="menus">
-        <ActionMenu active={this.state.phase === turnStages.ACTION} />
-        <BonusActionMenu active={this.state.phase === turnStages.BONUS} />
+        <ActionMenu
+          disabled={this.state.phase === turnStages.REACTION}
+          active={this.state.phase === turnStages.ACTION}
+        />
+        <BonusActionMenu
+          disabled={this.state.phase === turnStages.REACTION}
+          active={this.state.phase === turnStages.BONUS}
+        />
+        <ReactionMenu
+          disabled={this.state.phase !== turnStages.REACTION}
+          active={this.state.phase === turnStages.REACTION}
+        />
       </div>
     );
   }

@@ -46,12 +46,18 @@ button {
     font-weight: 400;
     font-size: 1.25em;
     padding: .5em;
-    margin: 2em auto;
+    margin: 1em auto;
+    display: block;
     cursor: pointer;
     &:hover {
         background: $blue-hl;
     }
     &.big {
+        font-size: 2em;
+        align-self: center;
+        padding: .75em;
+    }
+    &.biggest {
         font-size: 3em;
         align-self: center;
         padding: .75em;

@@ -6,14 +6,19 @@ class ActionMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: this.props.active,
       movementComplete: false,
       attackComplete: false
     };
   }
+  classes() {
+    let classes = "";
+    if (this.props.active) classes += "active ";
+    if (this.props.disabled) classes += "disabled ";
+    return classes;
+  }
   render() {
     return (
-      <div className={this.state.active ? "active" : ""}>
+      <div className={this.classes()}>
         <h2>Action</h2>
         <div id="action">
           <MovementMenu complete={this.state.movementComplete} />

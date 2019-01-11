@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 
-class BonusActionMenu extends Component {
+class ReactionMenu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      active: this.props.active
+    };
+  }
   classes() {
     let classes = "";
     if (this.props.active) classes += "active ";
@@ -10,11 +16,12 @@ class BonusActionMenu extends Component {
   render() {
     return (
       <div className={this.classes()}>
-        <h2>Bonus Action</h2>
+        <h2>Reaction</h2>
         <section>
           <p>
-            <label>Cast a spell.</label>
-            Execute a spell with a Casting Time of one bonus action.
+            <label>Opportunity Attack.</label>
+            Make one Melee Attack against a creature who hasn't Disengaged as it
+            moves out of your reach.
           </p>
         </section>
       </div>
@@ -22,4 +29,4 @@ class BonusActionMenu extends Component {
   }
 }
 
-export default BonusActionMenu;
+export default ReactionMenu;
