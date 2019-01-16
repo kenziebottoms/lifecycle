@@ -10,11 +10,32 @@ class BonusActionMenu extends Component {
   render() {
     return (
       <div className={this.classes()}>
-        <h2>Bonus Action</h2>
+        <h2>
+          <a
+            href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#BonusActions"
+            target="blank"
+          >
+            Bonus Action
+          </a>
+        </h2>
         <section>
           <p>
-            <label>Cast a spell.</label>
-            Execute a spell with a Casting Time of one bonus action.
+            <label>
+              <a
+                target="blank"
+                href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#CastaSpell"
+              >
+                Cast a spell.
+              </a>
+            </label>
+            Execute a spell with a{" "}
+            <a
+              target="blank"
+              href="https://www.dndbeyond.com/compendium/rules/basic-rules/spellcasting#CastingTime"
+            >
+              Casting Time
+            </a>{" "}
+            of one bonus action.
           </p>
         </section>
       </div>

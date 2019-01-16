@@ -10,11 +10,24 @@ class MovementMenu extends Component {
   render() {
     return (
       <div className={this.state.active ? "active" : ""}>
-        <h2>Movement</h2>
+        <h2>
+          <a
+            target="blank"
+            href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#MovementandPosition"
+          >
+            Movement
+          </a>
+        </h2>
         <section>
           <p>
-            You can move a distance up to your walking speed. You may do this at
-            any point in your turn and you may split it up.
+            You can move a distance up to your{" "}
+            <a
+              href="https://www.dndbeyond.com/compendium/rules/basic-rules/monsters#Speed"
+              target="blank"
+            >
+              Walking Speed
+            </a>
+            . You may do this at any point in your turn and you may split it up.
           </p>
         </section>
       </div>

@@ -16,12 +16,39 @@ class ReactionMenu extends Component {
   render() {
     return (
       <div className={this.classes()}>
-        <h2>Reaction</h2>
+        <h2>
+          <a
+            target="blank"
+            href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#Reactions"
+          >
+            Reaction
+          </a>
+        </h2>
         <section>
           <p>
-            <label>Opportunity Attack.</label>
-            Make one Melee Attack against a creature who hasn't Disengaged as it
-            moves out of your reach.
+            <label>
+              <a
+                target="blank"
+                href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#OpportunityAttacks"
+              >
+                Opportunity Attack.
+              </a>
+            </label>
+            Make one{" "}
+            <a
+              target="blank"
+              href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#MeleeAttacks"
+            >
+              Melee Attack
+            </a>{" "}
+            against a creature who hasn't{" "}
+            <a
+              href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#Disengage"
+              target="blank"
+            >
+              Disengaged
+            </a>{" "}
+            as it moves out of your reach.
           </p>
         </section>
       </div>
