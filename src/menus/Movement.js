@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 
 class MovementMenu extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: this.props.active,
-    };
-  }
+  computeSpeed = () => {
+    return this.props.char.speed;
+  };
   render() {
     return (
-      <div id="movement" className={this.state.active ? 'active' : ''}>
+      <div id="movement" className={this.props.active ? 'active' : ''}>
         <h2>
           <a
             target="blank"
@@ -37,6 +34,10 @@ class MovementMenu extends Component {
               onBlur={e => this.props.onSpeedChange(e.target.value)}
             />
             <label htmlFor="speed">Base Speed</label>
+          </p>
+          <p className="center">
+            <span id="speed">{this.computeSpeed()}</span>
+            <label>Speed</label>
           </p>
         </section>
       </div>

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import ClassDropdown from "./ClassDropdown";
-import RaceDropdown from "./RaceDropdown";
+import React, { Component } from 'react';
+import ClassDropdown from './elements/ClassDropdown';
+import RaceDropdown from './elements/RaceDropdown';
 
 class IntroForm extends Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class IntroForm extends Component {
     this.state = {
       name: null,
       class: null,
-      race: null
+      race: null,
     };
   }
 
@@ -16,9 +16,9 @@ class IntroForm extends Component {
     e.preventDefault();
     const data = new FormData(e.target);
     let char = {
-      name: data.get("name"),
-      class: data.get("class"),
-      race: data.get("race")
+      name: data.get('name'),
+      class: data.get('class'),
+      race: data.get('race'),
     };
     this.props.submit(char);
   }

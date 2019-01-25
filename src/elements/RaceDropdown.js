@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Races } from "./data/races.json";
+import React, { Component } from 'react';
+import { Races } from '../data/races.json';
 
 class RaceDropdown extends Component {
   populateRaces() {

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import classes from "./data/classes.json";
+import React, { Component } from 'react';
+import classes from '../data/classes.json';
 
 class ClassDropdown extends Component {
   populateClasses() {

@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import "./scss/App.scss";
-import Header from "./Header";
-import IntroForm from "./IntroForm";
-import Conditions from "./Conditions";
-import Menus from "./Menus";
+import React, { Component } from 'react';
+import './scss/App.scss';
+import Header from './Header';
+import IntroForm from './IntroForm';
+import Conditions from './Conditions';
+import Menus from './Menus';
 
-import constants from "./constants";
+import constants from './constants';
 let { turnStages, localStorageVariables } = constants;
 let { CHARACTER, TURN } = localStorageVariables;
 
@@ -17,7 +17,7 @@ class App extends Component {
     let turn = store.getItem(TURN);
     this.state = {
       turnStage: turn ? JSON.parse(turn) : turnStages.INACTIVE,
-      char: char ? JSON.parse(char) : null
+      char: char ? JSON.parse(char) : null,
     };
   }
   updateCharacter(char) {
@@ -34,7 +34,7 @@ class App extends Component {
     return (
       <div className="app">
         <Header char={this.state.char} />
-        <Conditions />
+        <Conditions char={this.state.char} />
         <Menus
           char={this.state.char}
           onCharacterChange={char => this.updateCharacter(char)}
