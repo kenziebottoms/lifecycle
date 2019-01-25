@@ -21,7 +21,11 @@ class ActionMenu extends Component {
       <div className={this.classes()}>
         <h2>Action</h2>
         <div id="action">
-          <MovementMenu complete={this.state.movementComplete} />
+          <MovementMenu
+            char={this.props.char}
+            onSpeedChange={speed => this.props.onSpeedChange(speed)}
+            complete={this.state.movementComplete}
+          />
           <CombatActionMenu complete={this.state.attackComplete} />
         </div>
       </div>

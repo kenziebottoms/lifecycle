@@ -19,6 +19,12 @@ class Menus extends Component {
     this.props.onCharacterChange(char);
   }
 
+  updateSpeed(speed) {
+    let char = JSON.parse(JSON.stringify(this.props.char));
+    char.speed = speed;
+    this.props.onCharacterChange(char);
+  }
+
   render() {
     if (!this.props.char) return null;
     if (this.state.phase === turnStages.INACTIVE) {
@@ -48,6 +54,8 @@ class Menus extends Component {
         <ActionMenu
           disabled={this.state.phase === turnStages.REACTION}
           active={this.state.phase === turnStages.ACTION}
+          char={this.props.char}
+          onSpeedChange={speed => this.updateSpeed(speed)}
         />
         <BonusActionMenu
           disabled={this.state.phase === turnStages.REACTION}

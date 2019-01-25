@@ -4,6 +4,7 @@ class MovementMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      speed: this,
       active: this.props.active
     };
   }
@@ -28,6 +29,13 @@ class MovementMenu extends Component {
               Walking Speed
             </a>
             . You may do this at any point in your turn and you may split it up.
+          </p>
+          <p>
+            <input
+              type="number"
+              defaultValue={this.props.char.speed}
+              onBlur={e => this.props.onSpeedChange(e.target.value)}
+            />
           </p>
         </section>
       </div>

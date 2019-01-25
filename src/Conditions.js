@@ -7,75 +7,75 @@ class Conditions extends Component {
       <div id="conditions">
         <div>
           <input type="checkbox" id="prone" />
-          <label for="prone">prone</label>
+          <label htmlFor="prone">prone</label>
         </div>
         <div>
           <input type="checkbox" id="difficult" />
-          <label for="difficult">difficult</label>
+          <label htmlFor="difficult">difficult</label>
         </div>
         <div>
           <input type="checkbox" id="squeezing" />
-          <label for="squeezing">squeezing</label>
+          <label htmlFor="squeezing">squeezing</label>
         </div>
         <div>
           <input type="checkbox" id="exhausted" />
-          <label for="exhausted">exhausted</label>
+          <label htmlFor="exhausted">exhausted</label>
         </div>
         <div>
           <input type="checkbox" id="blind" />
-          <label for="blind">blind</label>
+          <label htmlFor="blind">blind</label>
         </div>
         <div>
           <input type="checkbox" id="charmed" />
-          <label for="charmed">charmed</label>
+          <label htmlFor="charmed">charmed</label>
         </div>
         <div>
           <input type="checkbox" id="deaf" />
-          <label for="deaf">deaf</label>
+          <label htmlFor="deaf">deaf</label>
         </div>
         <div>
           <input type="checkbox" id="fatigued" />
-          <label for="fatigued">fatigued</label>
+          <label htmlFor="fatigued">fatigued</label>
         </div>
         <div>
           <input type="checkbox" id="frightened" />
-          <label for="frightened">frightened</label>
+          <label htmlFor="frightened">frightened</label>
         </div>
         <div>
           <input type="checkbox" id="grappling" />
-          <label for="grappling">grappling</label>
+          <label htmlFor="grappling">grappling</label>
         </div>
         <div>
           <input type="checkbox" id="incapacitated" />
-          <label for="incapacitated">incapacitated</label>
+          <label htmlFor="incapacitated">incapacitated</label>
         </div>
         <div>
           <input type="checkbox" id="invisible" />
-          <label for="invisible">invisible</label>
+          <label htmlFor="invisible">invisible</label>
         </div>
         <div>
           <input type="checkbox" id="paralyzed" />
-          <label for="paralyzed">paralyzed</label>
+          <label htmlFor="paralyzed">paralyzed</label>
         </div>
         <div>
           <input type="checkbox" id="petrified" />
-          <label for="petrified">petrified</label>
+          <label htmlFor="petrified">petrified</label>
         </div>
         <div>
           <input type="checkbox" id="poisoned" />
-          <label for="poisoned">poisoned</label>
+          <label htmlFor="poisoned">poisoned</label>
         </div>
         <div>
           <input type="checkbox" id="restrained" />
-          <label for="restrained">restrained</label>
+          <label htmlFor="restrained">restrained</label>
         </div>
         <div>
           <input type="checkbox" id="stunned" />
-          <label for="stunned">stunned</label>
+          <label htmlFor="stunned">stunned</label>
         </div>
         <div>
           <input type="checkbox" id="unconscious" />
-          <label for="unconscious">unconscious</label>
+          <label htmlFor="unconscious">unconscious</label>
         </div>
       </div>
     );
