@@ -1,16 +1,15 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class MovementMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      speed: this,
-      active: this.props.active
+      active: this.props.active,
     };
   }
   render() {
     return (
-      <div className={this.state.active ? "active" : ""}>
+      <div id="movement" className={this.state.active ? 'active' : ''}>
         <h2>
           <a
             target="blank"
@@ -21,7 +20,7 @@ class MovementMenu extends Component {
         </h2>
         <section>
           <p>
-            You can move a distance up to your{" "}
+            You can move a distance up to your{' '}
             <a
               href="https://www.dndbeyond.com/compendium/rules/basic-rules/monsters#Speed"
               target="blank"
@@ -30,12 +29,14 @@ class MovementMenu extends Component {
             </a>
             . You may do this at any point in your turn and you may split it up.
           </p>
-          <p>
+          <p className="center">
             <input
+              name="speed"
               type="number"
               defaultValue={this.props.char.speed}
               onBlur={e => this.props.onSpeedChange(e.target.value)}
             />
+            <label htmlFor="speed">Base Speed</label>
           </p>
         </section>
       </div>

@@ -18,9 +18,9 @@ class ActionMenu extends Component {
   }
   render() {
     return (
-      <div className={this.classes()}>
+      <div id="action" className={this.classes()}>
         <h2>Action</h2>
-        <div id="action">
+        <div>
           <MovementMenu
             char={this.props.char}
             onSpeedChange={speed => this.props.onSpeedChange(speed)}

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./scss/Conditions.scss";
+import React, { Component } from 'react';
+import './scss/Conditions.scss';
 
 class Conditions extends Component {
   render() {

@@ -1,14 +1,18 @@
 @import 'colors';
 @import 'fonts';
 @import 'forms';
-
 body {
     margin: auto;
     font-family: $bodyFont;
     font-size: 14pt;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 1em 0 .5em 0;
     font-weight: 400;
     color: $g6;
@@ -51,4 +55,8 @@ a[target="blank"] {
     height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+.center {
+    text-align: center;
 }

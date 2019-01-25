@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import "./scss/Menus.scss";
-import ActionMenu from "./menus/Action";
-import BonusActionMenu from "./menus/BonusAction";
-import ReactionMenu from "./menus/Reaction";
+import React, { Component } from 'react';
+import './scss/Menus.scss';
+import ActionMenu from './menus/Action';
+import BonusActionMenu from './menus/BonusAction';
+import ReactionMenu from './menus/Reaction';
 
-import constants from "./constants";
+import constants from './constants';
 let { turnStages } = constants;
 
 class Menus extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      phase: this.props.active ? turnStages.ACTION : turnStages.INACTIVE
+      phase: this.props.active ? turnStages.ACTION : turnStages.INACTIVE,
     };
   }
 
