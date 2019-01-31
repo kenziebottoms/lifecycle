@@ -24,7 +24,7 @@ const conditions = [
 
 class Conditions extends Component {
   getConditionSet = () =>
-    new Set(JSON.parse(JSON.stringify(this.props.char.conditions || null)));
+    new Set(JSON.parse(JSON.stringify(this.props.conditions || null)));
 
   addCondition = condition => {
     let conditions = this.getConditionSet();
@@ -50,6 +50,8 @@ class Conditions extends Component {
           key={condition}
           active={this.isAfflicted(condition)}
           value={condition}
+          activate={() => this.addCondition(condition)}
+          deactivate={() => this.removeCondition(condition)}
         />
       );
     });

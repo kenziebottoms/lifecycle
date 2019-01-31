@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 class Condition extends Component {
+  onChange = e =>
+    e.target.checked ? this.props.activate() : this.props.deactivate();
+
   render() {
     return (
       <div>
         <input
-          onChange={e => console.log(e)}
+          onChange={e => this.onChange(e)}
           checked={this.props.active}
           type="checkbox"
           id={this.props.value}
