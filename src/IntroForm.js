@@ -24,15 +24,19 @@ class IntroForm extends Component {
   }
 
   render() {
-    return (
-      <form onSubmit={e => this.saveChar(e)} id="intro">
-        <h3>New app who dis</h3>
-        <input type="text" name="name" placeholder="Character name" />
-        <ClassDropdown />
-        <RaceDropdown />
-        <button type="submit">Lessgo</button>
-      </form>
-    );
+    if (!this.props.char) {
+      return (
+        <form onSubmit={e => this.saveChar(e)} id="intro">
+          <h3>New app who dis</h3>
+          <input type="text" name="name" placeholder="Character name" />
+          <ClassDropdown />
+          <RaceDropdown />
+          <button type="submit">Lessgo</button>
+        </form>
+      );
+    } else {
+      return null;
+    }
   }
 }
 export default IntroForm;

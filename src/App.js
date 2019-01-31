@@ -19,36 +19,41 @@ class App extends Component {
       conditions: store.conditions || [],
     };
   }
+
   updateCharacter(char) {
     let state = JSON.parse(JSON.stringify(this.state));
     state.char = char;
     this.setState(state);
     window.localStorage.setItem(localStorageVariable, JSON.stringify(state));
   }
+
   updateConditions(conditions) {
     let state = JSON.parse(JSON.stringify(this.state));
     state.conditions = conditions;
     this.setState(state);
     window.localStorage.setItem(localStorageVariable, JSON.stringify(state));
   }
-  intro() {
-    if (!this.state.char)
-      return <IntroForm submit={char => this.updateCharacter(char)} />;
-  }
+
   render() {
     return (
       <div className="app">
         <Header char={this.state.char} />
+
         <Conditions
           updateConditions={conditions => this.updateConditions(conditions)}
           conditions={this.state.conditions}
         />
+
         <Menus
           char={this.state.char}
           onCharacterChange={char => this.updateCharacter(char)}
           active={this.state.myTurn}
         />
-        {this.intro()}
+
+        <IntroForm
+          char={this.state.char}
+          submit={char => this.updateCharacter(char)}
+        />
       </div>
     );
   }
