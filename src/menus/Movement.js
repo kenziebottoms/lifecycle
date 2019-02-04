@@ -15,6 +15,14 @@ class MovementMenu extends Component {
             >
               Movement
             </a>
+            <input
+              className="turn"
+              id="movement"
+              type="checkbox"
+              disabled={this.props.disabled || !this.props.active}
+              checked={this.props.complete}
+              onChange={e => this.props.onComplete(e)}
+            />
           </h3>
         </header>
         <article>

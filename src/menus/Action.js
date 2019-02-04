@@ -23,7 +23,20 @@ class ActionMenu extends Component {
     return (
       <menu id="action" className={this.classes()}>
         <header>
-          <h2>Action</h2>
+          <h2>
+            Action
+            <input
+              className="turn"
+              id="action"
+              type="checkbox"
+              disabled={this.props.disabled || !this.props.active}
+              checked={
+                this.props.complete &&
+                this.props.turnStage !== turnStages.INACTIVE
+              }
+              onChange={e => this.props.onComplete(e)}
+            />
+          </h2>
         </header>
         <MovementMenu
           active={Math.floor(this.props.turn) === turnStages.ACTION}

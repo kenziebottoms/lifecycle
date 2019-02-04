@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import constants from '../constants';
+let { turnStages } = constants;
 
 class BonusActionMenu extends Component {
   classes() {
@@ -19,6 +21,17 @@ class BonusActionMenu extends Component {
             >
               Bonus Action
             </a>
+            <input
+              className="turn"
+              id="bonus"
+              type="checkbox"
+              disabled={this.props.disabled || !this.props.active}
+              checked={
+                this.props.complete &&
+                this.props.turnStage !== turnStages.INACTIVE
+              }
+              onChange={e => this.props.onComplete(e)}
+            />
           </h2>
         </header>
         <article>

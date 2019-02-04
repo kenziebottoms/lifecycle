@@ -17,7 +17,7 @@ class TurnControls extends Component {
         </button>
         <button
           onClick={() => {
-            this.activateTurnStage(turnStages.REACTION);
+            this.props.activateTurnStage(turnStages.REACTION);
           }}
           className="big"
         >

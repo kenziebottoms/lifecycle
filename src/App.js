@@ -29,8 +29,9 @@ class App extends Component {
     this.setState(state);
     window.localStorage.setItem(localStorageVariable, JSON.stringify(state));
   }
+
   updateSpeed(speed) {
-    let char = JSON.parse(JSON.stringify(this.props.char));
+    let char = JSON.parse(JSON.stringify(this.state.char));
     char.speed = speed;
     this.updateCharacter(char);
   }
@@ -54,32 +55,38 @@ class App extends Component {
       <div className="app">
         <Header char={this.state.char} />
 
-        <TurnControls
-          activateTurnStage={turnStage => this.activateTurnStage(turnStage)}
-          turnStage={this.state.turnStage}
-        />
-
         <Conditions
           char={this.state.char}
           conditions={this.state.conditions}
           updateConditions={conditions => this.updateConditions(conditions)}
         />
 
+        <TurnControls
+          activateTurnStage={turnStage => this.activateTurnStage(turnStage)}
+          turnStage={this.state.turnStage}
+        />
+
         <ActionMenu
+          turnStage={this.state.turnStage}
           active={Math.floor(this.state.turnStage) === turnStages.ACTION}
           disabled={Math.floor(this.state.turnStage) === turnStages.REACTION}
           char={this.state.char}
           onSpeedChange={speed => this.updateSpeed(speed)}
+          onComplete={() => this.activateTurnStage(turnStages.BONUS)}
         />
         <BonusActionMenu
+          turnStage={this.state.turnStage}
           char={this.state.char}
-          active={Math.floor(this.state.phase) === turnStages.BONUS}
-          disabled={Math.floor(this.state.phase) === turnStages.REACTION}
+          active={Math.floor(this.state.turnStage) === turnStages.BONUS}
+          disabled={Math.floor(this.state.turnStage) === turnStages.REACTION}
+          onComplete={() => this.activateTurnStage(turnStages.INACTIVE)}
         />
         <ReactionMenu
+          turnStage={this.state.turnStage}
           char={this.state.char}
-          active={Math.floor(this.state.phase) === turnStages.REACTION}
-          disabled={Math.floor(this.state.phase) !== turnStages.REACTION}
+          active={Math.floor(this.state.turnStage) === turnStages.REACTION}
+          disabled={Math.floor(this.state.turnStage) !== turnStages.REACTION}
+          onComplete={() => this.activateTurnStage(turnStages.INACTIVE)}
         />
 
         <IntroForm

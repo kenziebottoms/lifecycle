@@ -12,6 +12,14 @@ class CombatActionMenu extends Component {
             >
               Combat Action
             </a>
+            <input
+              className="turn"
+              id="reaction"
+              type="checkbox"
+              disabled={this.props.disabled || !this.props.active}
+              checked={this.props.complete}
+              onChange={e => this.props.onComplete(e)}
+            />
           </h3>
         </header>
         <article>

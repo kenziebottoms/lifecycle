@@ -4,8 +4,8 @@ export default {
     ACTION: 1,
     MOVEMENT: 1.1,
     COMBAT: 1.2,
-    BONUS: 3,
-    REACTION: 4,
+    BONUS: 2,
+    REACTION: 3,
   },
   localStorageVariable: 'lifecycleChar',
 };

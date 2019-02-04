@@ -44,7 +44,7 @@ a[target='blank'] {
     height: 100vh;
     display: grid;
     grid-template-rows: repeat(4, auto);
-    > header {
+    >header {
         background: $g1;
         display: flex;
         justify-content: space-between;
@@ -54,12 +54,7 @@ a[target='blank'] {
             margin: 0.25em 0;
         }
     }
-    h2,
-    h3 {
-        margin: 0;
-        padding: 0.5em 0;
-    }
-    > menu {
+    >menu {
         // root-level menus
         &:not(.active) {
             article,
@@ -67,7 +62,7 @@ a[target='blank'] {
                 display: none;
             }
         }
-        > header {
+        >header {
             white-space: nowrap;
             background: $g1;
             margin: 0 1px;
@@ -81,19 +76,19 @@ a[target='blank'] {
         &.disabled {
             opacity: 0.4;
             justify-content: center;
-            > header {
+            >header {
                 background: $g4;
                 text-align: center;
                 color: $white;
-                > h2 {
+                >h2 {
                     color: $white;
                 }
             }
         }
         &.active {
-            > header {
+            >header {
                 background: $blue;
-                > h2 {
+                >h2 {
                     color: $white;
                 }
             }
@@ -103,14 +98,21 @@ a[target='blank'] {
         padding: 0;
         margin: 0;
         max-height: 100%;
+        h2,
+        h3 {
+            white-space: nowrap;
+            margin: 0;
+            padding: 0.5em 0;
+        }
     }
-    #action {
+    menu#action {
         display: grid;
         overflow-y: hidden;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr auto;
         header {
             grid-column: 1 / span 2;
+            display: block;
         }
         &.active {
             menu {
@@ -124,8 +126,8 @@ a[target='blank'] {
             }
         }
     }
-    #movement {
-        input {
+    menu#movement {
+        input[type='number'] {
             font-size: 2rem;
             text-align: center;
             font-family: $bodyFont;
