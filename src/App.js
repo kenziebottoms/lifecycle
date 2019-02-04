@@ -3,7 +3,10 @@ import './scss/App.scss';
 import Header from './Header';
 import IntroForm from './IntroForm';
 import Conditions from './Conditions';
-import Menus from './Menus';
+import ActionMenu from './menus/Action';
+import BonusActionMenu from './menus/BonusAction';
+import ReactionMenu from './menus/Reaction';
+import TurnControls from './TurnControls';
 
 import constants from './constants';
 let { turnStages, localStorageVariable } = constants;
@@ -12,11 +15,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     let store = window.localStorage.getItem(localStorageVariable);
-    store = JSON.parse(store) || null;
+    store = JSON.parse(store);
     this.state = {
-      turnStage: store.turnStage || turnStages.INACTIVE,
-      char: store.char || null,
-      conditions: store.conditions || [],
+      turnStage: store ? store.turnStage : turnStages.INACTIVE,
+      char: store ? store.char : null,
+      conditions: store ? store.conditions : [],
     };
   }
 
@@ -26,10 +29,22 @@ class App extends Component {
     this.setState(state);
     window.localStorage.setItem(localStorageVariable, JSON.stringify(state));
   }
+  updateSpeed(speed) {
+    let char = JSON.parse(JSON.stringify(this.props.char));
+    char.speed = speed;
+    this.updateCharacter(char);
+  }
 
   updateConditions(conditions) {
     let state = JSON.parse(JSON.stringify(this.state));
     state.conditions = conditions;
+    this.setState(state);
+    window.localStorage.setItem(localStorageVariable, JSON.stringify(state));
+  }
+
+  activateTurnStage(turnStage) {
+    let state = JSON.parse(JSON.stringify(this.state));
+    state.turnStage = turnStage;
     this.setState(state);
     window.localStorage.setItem(localStorageVariable, JSON.stringify(state));
   }
@@ -39,15 +54,32 @@ class App extends Component {
       <div className="app">
         <Header char={this.state.char} />
 
-        <Conditions
-          updateConditions={conditions => this.updateConditions(conditions)}
-          conditions={this.state.conditions}
+        <TurnControls
+          activateTurnStage={turnStage => this.activateTurnStage(turnStage)}
+          turnStage={this.state.turnStage}
         />
 
-        <Menus
+        <Conditions
           char={this.state.char}
-          onCharacterChange={char => this.updateCharacter(char)}
-          active={this.state.myTurn}
+          conditions={this.state.conditions}
+          updateConditions={conditions => this.updateConditions(conditions)}
+        />
+
+        <ActionMenu
+          active={Math.floor(this.state.turnStage) === turnStages.ACTION}
+          disabled={Math.floor(this.state.turnStage) === turnStages.REACTION}
+          char={this.state.char}
+          onSpeedChange={speed => this.updateSpeed(speed)}
+        />
+        <BonusActionMenu
+          char={this.state.char}
+          active={Math.floor(this.state.phase) === turnStages.BONUS}
+          disabled={Math.floor(this.state.phase) === turnStages.REACTION}
+        />
+        <ReactionMenu
+          char={this.state.char}
+          active={Math.floor(this.state.phase) === turnStages.REACTION}
+          disabled={Math.floor(this.state.phase) !== turnStages.REACTION}
         />
 
         <IntroForm

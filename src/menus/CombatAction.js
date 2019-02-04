@@ -1,24 +1,20 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class CombatActionMenu extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: this.props.active
-    };
-  }
   render() {
     return (
-      <div id="combatAction" className={this.state.active ? "active" : ""}>
-        <h2>
-          <a
-            target="blank"
-            href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#ActionsinCombat"
-          >
-            Combat Action
-          </a>
-        </h2>
-        <section>
+      <menu id="combatAction" className={this.props.active ? 'active' : ''}>
+        <header>
+          <h3>
+            <a
+              target="blank"
+              href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#ActionsinCombat"
+            >
+              Combat Action
+            </a>
+          </h3>
+        </header>
+        <article>
           <p>
             <label>
               <a
@@ -28,20 +24,20 @@ class CombatActionMenu extends Component {
                 Attack.
               </a>
             </label>
-            Make one{" "}
+            Make one{' '}
             <a
               target="blank"
               href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#MeleeAttacks"
             >
               Melee
-            </a>{" "}
-            or{" "}
+            </a>{' '}
+            or{' '}
             <a
               href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#RangedAttacks"
               target="blank"
             >
               Ranged
-            </a>{" "}
+            </a>{' '}
             Attack.
           </p>
           <p>
@@ -53,13 +49,13 @@ class CombatActionMenu extends Component {
                 Cast a spell.
               </a>
             </label>
-            Execute a spell with a{" "}
+            Execute a spell with a{' '}
             <a
               target="blank"
               href="https://www.dndbeyond.com/compendium/rules/basic-rules/spellcasting#CastingTime"
             >
               Casting Time
-            </a>{" "}
+            </a>{' '}
             of one action.
           </p>
           <p>
@@ -71,7 +67,7 @@ class CombatActionMenu extends Component {
                 Dash.
               </a>
             </label>
-            Move extra distance equal to your{" "}
+            Move extra distance equal to your{' '}
             <a
               href="https://www.dndbeyond.com/compendium/rules/basic-rules/monsters#Speed"
               target="blank"
@@ -89,13 +85,13 @@ class CombatActionMenu extends Component {
                 Disengage.
               </a>
             </label>
-            You may move without provoking{" "}
+            You may move without provoking{' '}
             <a
               target="blank"
               href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#OpportunityAttacks"
             >
               Opportunity Attacks
-            </a>{" "}
+            </a>{' '}
             this turn.
           </p>
           <p>
@@ -107,21 +103,21 @@ class CombatActionMenu extends Component {
                 Dodge.
               </a>
             </label>
-            This turn, all{" "}
+            This turn, all{' '}
             <a
               href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#AttackRolls"
               target="blank"
             >
               Attack Rolls
-            </a>{" "}
-            against you have{" "}
+            </a>{' '}
+            against you have{' '}
             <a
               target="blank"
               href="https://www.dndbeyond.com/compendium/rules/phb/using-ability-scores#AdvantageandDisadvantage"
             >
               Disadvantage
-            </a>{" "}
-            and you have advantage on dexterity{" "}
+            </a>{' '}
+            and you have advantage on dexterity{' '}
             <a
               target="blank"
               href="https://www.dndbeyond.com/compendium/rules/phb/using-ability-scores#SavingThrows"
@@ -139,13 +135,13 @@ class CombatActionMenu extends Component {
                 Help.
               </a>
             </label>
-            Give another creature advantage on their next{" "}
+            Give another creature advantage on their next{' '}
             <a
               href="https://www.dndbeyond.com/compendium/rules/phb/using-ability-scores#AbilityChecks"
               target="blank"
             >
               Ability Check
-            </a>{" "}
+            </a>{' '}
             to complete a certain task before your next turn, or give another
             creature advantage on their next attack roll before your next turn.
           </p>
@@ -194,8 +190,8 @@ class CombatActionMenu extends Component {
             </label>
             Use an object that requires your full attention to operate.
           </p>
-        </section>
-      </div>
+        </article>
+      </menu>
     );
   }
 }

@@ -58,6 +58,7 @@ class Conditions extends Component {
   };
 
   render() {
+    if (!this.props.char) return null;
     return <div id="conditions">{this.renderConditions()}</div>;
   }
 }

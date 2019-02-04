@@ -1,24 +1,27 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class BonusActionMenu extends Component {
   classes() {
-    let classes = "";
-    if (this.props.active) classes += "active ";
-    if (this.props.disabled) classes += "disabled ";
+    let classes = '';
+    if (this.props.active) classes += 'active ';
+    if (this.props.disabled) classes += 'disabled ';
     return classes;
   }
   render() {
+    if (!this.props.char) return null;
     return (
-      <div className={this.classes()}>
-        <h2>
-          <a
-            href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#BonusActions"
-            target="blank"
-          >
-            Bonus Action
-          </a>
-        </h2>
-        <section>
+      <menu className={this.classes()}>
+        <header>
+          <h2>
+            <a
+              href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#BonusActions"
+              target="blank"
+            >
+              Bonus Action
+            </a>
+          </h2>
+        </header>
+        <article>
           <p>
             <label>
               <a
@@ -28,17 +31,17 @@ class BonusActionMenu extends Component {
                 Cast a spell.
               </a>
             </label>
-            Execute a spell with a{" "}
+            Execute a spell with a{' '}
             <a
               target="blank"
               href="https://www.dndbeyond.com/compendium/rules/basic-rules/spellcasting#CastingTime"
             >
               Casting Time
-            </a>{" "}
+            </a>{' '}
             of one bonus action.
           </p>
-        </section>
-      </div>
+        </article>
+      </menu>
     );
   }
 }

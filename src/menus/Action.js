@@ -1,34 +1,41 @@
-import React, { Component } from "react";
-import MovementMenu from "./Movement";
-import CombatActionMenu from "./CombatAction";
+import React, { Component } from 'react';
+import MovementMenu from './Movement';
+import CombatActionMenu from './CombatAction';
+import constants from '../constants';
+let { turnStages } = constants;
 
 class ActionMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
       movementComplete: false,
-      attackComplete: false
+      attackComplete: false,
     };
   }
   classes() {
-    let classes = "";
-    if (this.props.active) classes += "active ";
-    if (this.props.disabled) classes += "disabled ";
+    let classes = '';
+    if (this.props.active) classes += 'active ';
+    if (this.props.disabled) classes += 'disabled ';
     return classes;
   }
   render() {
+    if (!this.props.char) return null;
     return (
-      <div id="action" className={this.classes()}>
-        <h2>Action</h2>
-        <div>
-          <MovementMenu
-            char={this.props.char}
-            onSpeedChange={speed => this.props.onSpeedChange(speed)}
-            complete={this.state.movementComplete}
-          />
-          <CombatActionMenu complete={this.state.attackComplete} />
-        </div>
-      </div>
+      <menu id="action" className={this.classes()}>
+        <header>
+          <h2>Action</h2>
+        </header>
+        <MovementMenu
+          active={Math.floor(this.props.turn) === turnStages.ACTION}
+          char={this.props.char}
+          onSpeedChange={speed => this.props.onSpeedChange(speed)}
+          complete={this.state.movementComplete}
+        />
+        <CombatActionMenu
+          active={Math.floor(this.props.turn) === turnStages.ACTION}
+          complete={this.state.attackComplete}
+        />
+      </menu>
     );
   }
 }

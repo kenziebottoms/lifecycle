@@ -6,16 +6,18 @@ class MovementMenu extends Component {
   };
   render() {
     return (
-      <div id="movement" className={this.props.active ? 'active' : ''}>
-        <h2>
-          <a
-            target="blank"
-            href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#MovementandPosition"
-          >
-            Movement
-          </a>
-        </h2>
-        <section>
+      <menu id="movement" className={this.props.active ? 'active' : ''}>
+        <header>
+          <h3>
+            <a
+              target="blank"
+              href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#MovementandPosition"
+            >
+              Movement
+            </a>
+          </h3>
+        </header>
+        <article>
           <p>
             You can move a distance up to your{' '}
             <a
@@ -39,8 +41,8 @@ class MovementMenu extends Component {
             <span id="speed">{this.computeSpeed()}</span>
             <label>Speed</label>
           </p>
-        </section>
-      </div>
+        </article>
+      </menu>
     );
   }
 }
