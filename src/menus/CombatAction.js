@@ -16,9 +16,8 @@ class CombatActionMenu extends Component {
               className="turn"
               id="reaction"
               type="checkbox"
-              disabled={this.props.disabled || !this.props.active}
               checked={this.props.checked}
-              onChange={e => this.props.onComplete(e)}
+              onChange={e => this.props.onChange(e)}
             />
           </h3>
         </header>

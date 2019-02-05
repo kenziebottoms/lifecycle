@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import constants from '../constants';
-let { turnStages } = constants;
 
 class ReactionMenu extends Component {
   classes() {

@@ -8,8 +8,8 @@ class ActionMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movementComplete: false,
-      attackComplete: false,
+      combat: false,
+      movement: false,
     };
   }
   classes() {
@@ -17,6 +17,13 @@ class ActionMenu extends Component {
     if (this.props.active) classes += 'active ';
     if (this.props.disabled) classes += 'disabled ';
     return classes;
+  }
+  complete(complete, turn) {
+    let state = JSON.parse(JSON.stringify(this.state));
+    state[turn] = complete;
+    this.setState(state, function() {
+      if (this.state.combat && this.state.movement) this.props.onComplete();
+    });
   }
   render() {
     if (!this.props.char) return null;
@@ -36,14 +43,16 @@ class ActionMenu extends Component {
           </h2>
         </header>
         <MovementMenu
+          checked={this.state.movement}
+          onChange={e => this.complete(e.target.checked, 'movement')}
           active={Math.floor(this.props.turn) === turnStages.ACTION}
           char={this.props.char}
           onSpeedChange={speed => this.props.onSpeedChange(speed)}
-          complete={this.state.movementComplete}
         />
         <CombatActionMenu
+          checked={this.state.combat}
+          onChange={e => this.complete(e.target.checked, 'combat')}
           active={Math.floor(this.props.turn) === turnStages.ACTION}
-          complete={this.state.attackComplete}
         />
       </menu>
     );
