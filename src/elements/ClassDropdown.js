@@ -13,7 +13,7 @@ class ClassDropdown extends Component {
   }
   render() {
     return (
-      <select name="class">
+      <select name="class" defaultValue={this.props.selected}>
         <option>Select a Class</option>
         {this.populateClasses()}
       </select>

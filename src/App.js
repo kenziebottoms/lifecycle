@@ -26,8 +26,10 @@ class App extends Component {
   updateCharacter(char) {
     let state = JSON.parse(JSON.stringify(this.state));
     state.char = char;
-    this.setState(state);
     window.localStorage.setItem(localStorageVariable, JSON.stringify(state));
+    this.setState(state, function() {
+      this.activateTurn(turnStages.INACTIVE);
+    });
   }
 
   updateSpeed(speed) {
@@ -53,7 +55,11 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Header char={this.state.char} />
+        <Header
+          turn={this.state.turn}
+          char={this.state.char}
+          editChar={() => this.activateTurn(turnStages.EDITING)}
+        />
 
         <Conditions
           char={this.state.char}
@@ -93,6 +99,7 @@ class App extends Component {
         />
 
         <IntroForm
+          turn={this.state.turn}
           char={this.state.char}
           submit={char => this.updateCharacter(char)}
         />

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import constants from '../constants';
+let { turnStages } = constants;
 
 class ReactionMenu extends Component {
   classes() {
@@ -9,7 +11,7 @@ class ReactionMenu extends Component {
   }
 
   render() {
-    if (!this.props.char) return null;
+    if (!this.props.char || this.props.turn < turnStages.INACTIVE) return null;
     return (
       <menu className={this.classes()}>
         <header>

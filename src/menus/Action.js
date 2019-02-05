@@ -26,7 +26,7 @@ class ActionMenu extends Component {
     });
   }
   render() {
-    if (!this.props.char) return null;
+    if (!this.props.char || this.props.turn < turnStages.INACTIVE) return null;
     return (
       <menu id="action" className={this.classes()}>
         <header>

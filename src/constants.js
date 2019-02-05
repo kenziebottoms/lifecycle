@@ -8,6 +8,7 @@ export default {
     MID_TURN: 3,
     REACTION: 4,
     FINISHED: 5,
+    EDITING: -1,
   },
   localStorageVariable: 'lifecycleChar',
 };

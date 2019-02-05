@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ClassDropdown from './elements/ClassDropdown';
 import RaceDropdown from './elements/RaceDropdown';
+import constants from './constants';
+let { turnStages } = constants;
 
 class IntroForm extends Component {
   constructor(props) {
@@ -24,27 +26,38 @@ class IntroForm extends Component {
     this.props.submit(char);
   }
 
-  render() {
-    if (!this.props.char) {
-      return (
-        <form onSubmit={e => this.saveChar(e)} id="intro">
-          <h3>New app who dis</h3>
-          <input type="text" name="name" placeholder="Character name" />
-          <input
-            type="number"
-            min="1"
-            max="20"
-            name="level"
-            placeholder="Level"
-          />
-          <ClassDropdown />
-          <RaceDropdown />
-          <button type="submit">Lessgo</button>
-        </form>
-      );
+  title() {
+    if (this.props.turn === turnStages.EDITING) {
+      return 'Leveled Up? Transitioned? Changed Your Mind?';
     } else {
-      return null;
+      return 'New app who dis';
     }
+  }
+
+  render() {
+    if (this.props.char && this.props.turn !== turnStages.EDITING) return null;
+    return (
+      <form onSubmit={e => this.saveChar(e)} id="intro">
+        <h3>{this.title()}</h3>
+        <input
+          type="text"
+          name="name"
+          defaultValue={this.props.char.name}
+          placeholder="Character name"
+        />
+        <input
+          type="number"
+          min="1"
+          max="20"
+          defaultValue={this.props.char.level}
+          name="level"
+          placeholder="Level"
+        />
+        <ClassDropdown selected={this.props.char.class} />
+        <RaceDropdown selected={this.props.char.race} />
+        <button type="submit">Lessgo</button>
+      </form>
+    );
   }
 }
 export default IntroForm;

@@ -32,6 +32,12 @@ section {
     margin: 0.5rem 1rem;
 }
 
+a,
+span.link {
+    cursor: pointer;
+    color: $blue;
+}
+
 a[target='blank'] {
     border-bottom: 1px solid $blue;
     color: inherit;
@@ -67,7 +73,7 @@ a[target='blank'] {
             text-align: center;
             padding: 0.175em;
             box-sizing: border-box;
-            margin-right: 0.65rem;
+            margin-left: 0.65rem;
         }
     }
     >menu {
