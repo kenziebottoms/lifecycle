@@ -20,7 +20,7 @@ class MovementMenu extends Component {
               id="movement"
               type="checkbox"
               disabled={this.props.disabled || !this.props.active}
-              checked={this.props.complete}
+              checked={this.props.checked}
               onChange={e => this.props.onComplete(e)}
             />
           </h3>

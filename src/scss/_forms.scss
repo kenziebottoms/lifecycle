@@ -31,7 +31,7 @@ form {
             margin: 0;
         }
         font-size: 1rem;
-        >*:first-child {
+        > *:first-child {
             margin-right: 0.5rem;
         }
     }
@@ -62,6 +62,13 @@ button {
         font-size: 3em;
         align-self: center;
         padding: 0.75em;
+    }
+    &:disabled {
+        background: $g3;
+        cursor: not-allowed;
+        &:hover {
+            background: $g3;
+        }
     }
 }
 

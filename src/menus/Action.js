@@ -30,10 +30,7 @@ class ActionMenu extends Component {
               id="action"
               type="checkbox"
               disabled={this.props.disabled || !this.props.active}
-              checked={
-                this.props.complete &&
-                this.props.turnStage !== turnStages.INACTIVE
-              }
+              checked={this.props.checked}
               onChange={e => this.props.onComplete(e)}
             />
           </h2>

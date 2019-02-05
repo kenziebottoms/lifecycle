@@ -5,7 +5,9 @@ export default {
     MOVEMENT: 1.1,
     COMBAT: 1.2,
     BONUS: 2,
-    REACTION: 3,
+    MID_TURN: 3,
+    REACTION: 4,
+    FINISHED: 5,
   },
   localStorageVariable: 'lifecycleChar',
 };

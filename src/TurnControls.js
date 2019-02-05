@@ -4,7 +4,12 @@ let { turnStages } = constants;
 
 class TurnControls extends Component {
   render() {
-    if (this.props.turnStage !== turnStages.INACTIVE) return null;
+    if (
+      this.props.turnStage !== turnStages.INACTIVE &&
+      this.props.turnStage !== turnStages.MID_TURN &&
+      this.props.turnStage !== turnStages.FINISHED
+    )
+      return null;
     return (
       <div>
         <button
@@ -19,6 +24,7 @@ class TurnControls extends Component {
           onClick={() => {
             this.props.activateTurnStage(turnStages.REACTION);
           }}
+          disabled={this.props.turnStage === turnStages.FINISHED}
           className="big"
         >
           React

@@ -70,6 +70,7 @@ class App extends Component {
           turnStage={this.state.turnStage}
           active={Math.floor(this.state.turnStage) === turnStages.ACTION}
           disabled={Math.floor(this.state.turnStage) === turnStages.REACTION}
+          checked={Math.floor(this.state.turnStage) > turnStages.ACTION}
           char={this.state.char}
           onSpeedChange={speed => this.updateSpeed(speed)}
           onComplete={() => this.activateTurnStage(turnStages.BONUS)}
@@ -79,14 +80,16 @@ class App extends Component {
           char={this.state.char}
           active={Math.floor(this.state.turnStage) === turnStages.BONUS}
           disabled={Math.floor(this.state.turnStage) === turnStages.REACTION}
-          onComplete={() => this.activateTurnStage(turnStages.INACTIVE)}
+          checked={Math.floor(this.state.turnStage) > turnStages.BONUS}
+          onComplete={() => this.activateTurnStage(turnStages.MID_TURN)}
         />
         <ReactionMenu
           turnStage={this.state.turnStage}
           char={this.state.char}
           active={Math.floor(this.state.turnStage) === turnStages.REACTION}
           disabled={Math.floor(this.state.turnStage) !== turnStages.REACTION}
-          onComplete={() => this.activateTurnStage(turnStages.INACTIVE)}
+          checked={Math.floor(this.state.turnStage) > turnStages.REACTION}
+          onComplete={() => this.activateTurnStage(turnStages.FINISHED)}
         />
 
         <IntroForm
