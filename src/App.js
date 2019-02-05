@@ -17,7 +17,7 @@ class App extends Component {
     let store = window.localStorage.getItem(localStorageVariable);
     store = JSON.parse(store);
     this.state = {
-      turnStage: store ? store.turnStage : turnStages.INACTIVE,
+      turn: store ? store.turn : turnStages.INACTIVE,
       char: store ? store.char : null,
       conditions: store ? store.conditions : [],
     };
@@ -43,9 +43,9 @@ class App extends Component {
     window.localStorage.setItem(localStorageVariable, JSON.stringify(state));
   }
 
-  activateTurnStage(turnStage) {
+  activateTurn(turn) {
     let state = JSON.parse(JSON.stringify(this.state));
-    state.turnStage = turnStage;
+    state.turn = turn;
     this.setState(state);
     window.localStorage.setItem(localStorageVariable, JSON.stringify(state));
   }
@@ -62,34 +62,34 @@ class App extends Component {
         />
 
         <TurnControls
-          activateTurnStage={turnStage => this.activateTurnStage(turnStage)}
-          turnStage={this.state.turnStage}
+          activateTurn={turn => this.activateTurn(turn)}
+          turn={this.state.turn}
         />
 
         <ActionMenu
-          turnStage={this.state.turnStage}
-          active={Math.floor(this.state.turnStage) === turnStages.ACTION}
-          disabled={Math.floor(this.state.turnStage) === turnStages.REACTION}
-          checked={Math.floor(this.state.turnStage) > turnStages.ACTION}
+          turn={this.state.turn}
+          active={Math.floor(this.state.turn) === turnStages.ACTION}
+          disabled={Math.floor(this.state.turn) === turnStages.REACTION}
+          checked={Math.floor(this.state.turn) > turnStages.ACTION}
           char={this.state.char}
           onSpeedChange={speed => this.updateSpeed(speed)}
-          onComplete={() => this.activateTurnStage(turnStages.BONUS)}
+          onComplete={() => this.activateTurn(turnStages.BONUS)}
         />
         <BonusActionMenu
-          turnStage={this.state.turnStage}
+          turn={this.state.turn}
           char={this.state.char}
-          active={Math.floor(this.state.turnStage) === turnStages.BONUS}
-          disabled={Math.floor(this.state.turnStage) === turnStages.REACTION}
-          checked={Math.floor(this.state.turnStage) > turnStages.BONUS}
-          onComplete={() => this.activateTurnStage(turnStages.MID_TURN)}
+          active={Math.floor(this.state.turn) === turnStages.BONUS}
+          disabled={Math.floor(this.state.turn) === turnStages.REACTION}
+          checked={Math.floor(this.state.turn) > turnStages.BONUS}
+          onComplete={() => this.activateTurn(turnStages.MID_TURN)}
         />
         <ReactionMenu
-          turnStage={this.state.turnStage}
+          turn={this.state.turn}
           char={this.state.char}
-          active={Math.floor(this.state.turnStage) === turnStages.REACTION}
-          disabled={Math.floor(this.state.turnStage) !== turnStages.REACTION}
-          checked={Math.floor(this.state.turnStage) > turnStages.REACTION}
-          onComplete={() => this.activateTurnStage(turnStages.FINISHED)}
+          active={Math.floor(this.state.turn) === turnStages.REACTION}
+          disabled={Math.floor(this.state.turn) !== turnStages.REACTION}
+          checked={Math.floor(this.state.turn) > turnStages.REACTION}
+          onComplete={() => this.activateTurn(turnStages.FINISHED)}
         />
 
         <IntroForm

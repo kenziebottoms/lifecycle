@@ -11,7 +11,7 @@ class Menus extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      phase: this.props.active ? turnStages.ACTION : turnStages.INACTIVE,
+      turn: this.props.active ? turnStages.ACTION : turnStages.INACTIVE,
     };
   }
 
@@ -27,12 +27,12 @@ class Menus extends Component {
 
   render() {
     if (!this.props.char) return null;
-    if (this.state.phase === turnStages.INACTIVE) {
+    if (this.state.turn === turnStages.INACTIVE) {
       return (
         <div>
           <button
             onClick={() => {
-              this.setState({ phase: turnStages.ACTION });
+              this.setState({ turn: turnStages.ACTION });
             }}
             className="biggest"
           >
@@ -40,7 +40,7 @@ class Menus extends Component {
           </button>
           <button
             onClick={() => {
-              this.setState({ phase: turnStages.REACTION });
+              this.setState({ turn: turnStages.REACTION });
             }}
             className="big"
           >
@@ -52,18 +52,18 @@ class Menus extends Component {
     return (
       <div className="menus">
         <ActionMenu
-          disabled={this.state.phase === turnStages.REACTION}
-          active={this.state.phase === turnStages.ACTION}
+          disabled={this.state.turn === turnStages.REACTION}
+          active={this.state.turn === turnStages.ACTION}
           char={this.props.char}
           onSpeedChange={speed => this.updateSpeed(speed)}
         />
         <BonusActionMenu
-          disabled={this.state.phase === turnStages.REACTION}
-          active={this.state.phase === turnStages.BONUS}
+          disabled={this.state.turn === turnStages.REACTION}
+          active={this.state.turn === turnStages.BONUS}
         />
         <ReactionMenu
-          disabled={this.state.phase !== turnStages.REACTION}
-          active={this.state.phase === turnStages.REACTION}
+          disabled={this.state.turn !== turnStages.REACTION}
+          active={this.state.turn === turnStages.REACTION}
         />
       </div>
     );

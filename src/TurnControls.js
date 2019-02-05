@@ -5,16 +5,18 @@ let { turnStages } = constants;
 class TurnControls extends Component {
   render() {
     if (
-      this.props.turnStage !== turnStages.INACTIVE &&
-      this.props.turnStage !== turnStages.MID_TURN &&
-      this.props.turnStage !== turnStages.FINISHED
+      !(
+        this.props.turn === turnStages.INACTIVE ||
+        this.props.turn === turnStages.MID_TURN ||
+        this.props.turn === turnStages.FINISHED
+      )
     )
       return null;
     return (
       <div>
         <button
           onClick={() => {
-            this.props.activateTurnStage(turnStages.ACTION);
+            this.props.activateTurn(turnStages.ACTION);
           }}
           className="biggest"
         >
@@ -22,9 +24,9 @@ class TurnControls extends Component {
         </button>
         <button
           onClick={() => {
-            this.props.activateTurnStage(turnStages.REACTION);
+            this.props.activateTurn(turnStages.REACTION);
           }}
-          disabled={this.props.turnStage === turnStages.FINISHED}
+          disabled={this.props.turn === turnStages.FINISHED}
           className="big"
         >
           React
