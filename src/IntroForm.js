@@ -19,6 +19,7 @@ class IntroForm extends Component {
       name: data.get('name'),
       class: data.get('class'),
       race: data.get('race'),
+      level: data.get('level'),
     };
     this.props.submit(char);
   }
@@ -29,6 +30,13 @@ class IntroForm extends Component {
         <form onSubmit={e => this.saveChar(e)} id="intro">
           <h3>New app who dis</h3>
           <input type="text" name="name" placeholder="Character name" />
+          <input
+            type="number"
+            min="1"
+            max="20"
+            name="level"
+            placeholder="Level"
+          />
           <ClassDropdown />
           <RaceDropdown />
           <button type="submit">Lessgo</button>

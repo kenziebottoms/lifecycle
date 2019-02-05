@@ -47,8 +47,8 @@ button {
     font-weight: 400;
     font-size: 1.25em;
     padding: 0.5em;
-    margin: 0.25em auto;
-    display: block;
+    margin: 0.25em;
+    display: inline-block;
     cursor: pointer;
     &:hover {
         background: $blue-hl;

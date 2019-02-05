@@ -13,7 +13,7 @@ class TurnControls extends Component {
     )
       return null;
     return (
-      <div>
+      <div id="turnControls">
         <button
           onClick={() => {
             this.props.activateTurn(turnStages.ACTION);

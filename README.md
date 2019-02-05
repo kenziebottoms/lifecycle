@@ -15,6 +15,7 @@ you should probably get your shit together. Or use this turn manager.
 
 ## Resources
 - [BTMorton's D&D 5e JSON documentation.](https://github.com/BTMorton/dnd-5e-srd/tree/master/json)
+- [D&D Beyond's Basic Rules](https://www.dndbeyond.com/compendium/rules/basic-rules)
 
 ---
 

@@ -9,7 +9,7 @@ const conditions = [
   'blind',
   'charmed',
   'deaf',
-  'fatiqued',
+  'fatigued',
   'frightened',
   'grappling',
   'incapacitated',
