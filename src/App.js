@@ -27,9 +27,7 @@ class App extends Component {
     let state = JSON.parse(JSON.stringify(this.state));
     state.char = char;
     window.localStorage.setItem(localStorageVariable, JSON.stringify(state));
-    this.setState(state, function() {
-      this.activateTurn(turnStages.INACTIVE);
-    });
+    this.setState(state);
   }
 
   updateSpeed(speed) {
@@ -101,7 +99,10 @@ class App extends Component {
         <IntroForm
           turn={this.state.turn}
           char={this.state.char}
-          submit={char => this.updateCharacter(char)}
+          submit={char => {
+            this.updateCharacter(char);
+            this.activateTurn(turnStages.INACTIVE);
+          }}
         />
       </div>
     );

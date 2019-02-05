@@ -47,7 +47,7 @@ a[target='blank'] {
 
 .app {
     width: 100%;
-    max-height: 100vh;
+    height: 100vh;
     display: grid;
     grid-template-rows: repeat(4, auto);
     >header {
@@ -170,4 +170,9 @@ a[target='blank'] {
 #turnControls {
     text-align: center;
     margin: 2rem 0;
+}
+
+.grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }

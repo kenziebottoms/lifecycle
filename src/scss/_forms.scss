@@ -31,7 +31,7 @@ form {
             margin: 0;
         }
         font-size: 1rem;
-        > *:first-child {
+        >*:first-child {
             margin-right: 0.5rem;
         }
     }
@@ -76,4 +76,8 @@ input[type='checkbox'] {
     &.turn {
         font-size: 2rem;
     }
+}
+
+input.blue {
+    color: $blue;
 }

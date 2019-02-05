@@ -35,19 +35,27 @@ class MovementMenu extends Component {
             </a>
             . You may do this at any point in your turn and you may split it up.
           </p>
-          <p className="center">
-            <input
-              name="speed"
-              type="number"
-              defaultValue={this.props.char.speed}
-              onBlur={e => this.props.onSpeedChange(e.target.value)}
-            />
-            <label htmlFor="speed">Base Speed</label>
-          </p>
-          <p className="center">
-            <span id="speed">{this.computeSpeed()}</span>
-            <label>Speed</label>
-          </p>
+          <div className="grid2">
+            <div className="center">
+              <input
+                className="blue"
+                name="speed"
+                type="number"
+                defaultValue={this.props.char.speed}
+                onBlur={e => this.props.onSpeedChange(e.target.value)}
+              />
+              <label htmlFor="speed">Base Speed</label>
+            </div>
+            <div className="center">
+              <input
+                name="totalSpeed"
+                type="number"
+                value={this.computeSpeed()}
+                readOnly
+              />
+              <label htmlFor="speed">Total Speed</label>
+            </div>
+          </div>
         </article>
       </menu>
     );
