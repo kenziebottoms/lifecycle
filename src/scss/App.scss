@@ -45,6 +45,13 @@ a[target='blank'] {
     cursor: help;
 }
 
+p.disabled {
+    color: $g3;
+    label {
+        color: $g3;
+    }
+}
+
 .app {
     width: 100%;
     height: 100vh;

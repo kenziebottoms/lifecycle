@@ -23,6 +23,13 @@ const conditions = [
 ];
 
 class Conditions extends Component {
+  constructor(props) {
+    super(props);
+    if (this.props.char.class === 'Druid' && this.props.char.level >= 2) {
+      conditions.push('wild shape');
+    }
+  }
+
   getConditionSet = () =>
     new Set(JSON.parse(JSON.stringify(this.props.conditions || null)));
 

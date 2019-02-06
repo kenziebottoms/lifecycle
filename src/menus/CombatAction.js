@@ -1,6 +1,34 @@
 import React, { Component } from 'react';
 
 class CombatActionMenu extends Component {
+  classActions() {
+    switch (this.props.char.class) {
+      case 'Druid':
+        if (this.props.char.level < 2) return;
+        return (
+          <p
+            className={
+              this.props.conditions.indexOf('wild shape') === -1
+                ? ''
+                : 'disabled'
+            }
+          >
+            <label>
+              <a
+                target="blank"
+                href="https://www.dndbeyond.com/characters/classes/druid#WildShape"
+              >
+                Wild Shape.
+              </a>
+            </label>
+            Magically assume the shape of a beast that you have seen before.
+          </p>
+        );
+      default:
+        return;
+    }
+  }
+
   render() {
     return (
       <menu id="combatAction" className={this.props.active ? 'active' : ''}>
@@ -22,6 +50,7 @@ class CombatActionMenu extends Component {
           </h3>
         </header>
         <article>
+          {this.classActions()}
           <p>
             <label>
               <a
@@ -47,7 +76,14 @@ class CombatActionMenu extends Component {
             </a>{' '}
             Attack.
           </p>
-          <p>
+          <p
+            className={
+              this.props.conditions.indexOf('wild shape') === -1 ||
+              this.props.char.level >= 18
+                ? ''
+                : 'disabled'
+            }
+          >
             <label>
               <a
                 target="blank"

@@ -11,6 +11,7 @@ class IntroForm extends Component {
       name: null,
       class: null,
       race: null,
+      level: 1,
     };
   }
 

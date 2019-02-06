@@ -9,6 +9,32 @@ class BonusActionMenu extends Component {
     if (this.props.disabled) classes += 'disabled ';
     return classes;
   }
+
+  classActions() {
+    switch (this.props.char.class) {
+      case 'Druid':
+        if (this.props.char.level < 2) return null;
+        if (this.props.conditions.indexOf('wild shape') === -1) return null;
+        return (
+          <p>
+            <label>
+              End{' '}
+              <a
+                target="blank"
+                href="https://www.dndbeyond.com/characters/classes/druid#WildShape"
+              >
+                Wild Shape.
+              </a>
+            </label>
+            Revert to your humanoid form.
+          </p>
+        );
+      default:
+        console.log(this.props.char.race);
+        return;
+    }
+  }
+
   render() {
     if (!this.props.char || this.props.turn < turnStages.INACTIVE) return null;
     return (
@@ -32,6 +58,7 @@ class BonusActionMenu extends Component {
           </h2>
         </header>
         <article>
+          {this.classActions()}
           <p>
             <label>
               <a

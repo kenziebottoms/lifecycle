@@ -27,7 +27,10 @@ class App extends Component {
     let state = JSON.parse(JSON.stringify(this.state));
     state.char = char;
     window.localStorage.setItem(localStorageVariable, JSON.stringify(state));
-    this.setState(state);
+    this.setState(state, function() {
+      if (this.state.turn === turnStages.EDITING)
+        this.activateTurn(turnStages.INACTIVE);
+    });
   }
 
   updateSpeed(speed) {
@@ -75,6 +78,7 @@ class App extends Component {
           active={Math.floor(this.state.turn) === turnStages.ACTION}
           disabled={Math.floor(this.state.turn) === turnStages.REACTION}
           checked={Math.floor(this.state.turn) > turnStages.ACTION}
+          conditions={this.state.conditions}
           char={this.state.char}
           onSpeedChange={speed => this.updateSpeed(speed)}
           onComplete={() => this.activateTurn(turnStages.BONUS)}
@@ -82,6 +86,7 @@ class App extends Component {
         <BonusActionMenu
           turn={this.state.turn}
           char={this.state.char}
+          conditions={this.state.conditions}
           active={Math.floor(this.state.turn) === turnStages.BONUS}
           disabled={Math.floor(this.state.turn) === turnStages.REACTION}
           checked={Math.floor(this.state.turn) > turnStages.BONUS}
@@ -99,10 +104,7 @@ class App extends Component {
         <IntroForm
           turn={this.state.turn}
           char={this.state.char}
-          submit={char => {
-            this.updateCharacter(char);
-            this.activateTurn(turnStages.INACTIVE);
-          }}
+          submit={char => this.updateCharacter(char)}
         />
       </div>
     );

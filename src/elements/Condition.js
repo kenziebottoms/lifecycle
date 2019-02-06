@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 class Condition extends Component {
   onChange = e =>
     e.target.checked ? this.props.activate() : this.props.deactivate();

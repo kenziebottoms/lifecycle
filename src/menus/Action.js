@@ -50,6 +50,8 @@ class ActionMenu extends Component {
           onSpeedChange={speed => this.props.onSpeedChange(speed)}
         />
         <CombatActionMenu
+          char={this.props.char}
+          conditions={this.props.conditions}
           checked={this.state.combat}
           onChange={e => this.complete(e.target.checked, 'combat')}
           active={Math.floor(this.props.turn) === turnStages.ACTION}
