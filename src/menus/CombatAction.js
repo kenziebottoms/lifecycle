@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 class CombatActionMenu extends Component {
+  attackCount() {
+    if (this.props.char.class === 'Barbarian' && this.props.char.level >= 5)
+      return ' (2)';
+    return '';
+  }
   classActions() {
     switch (this.props.char.class) {
       case 'Druid':
@@ -22,6 +27,22 @@ class CombatActionMenu extends Component {
               </a>
             </label>
             Magically assume the shape of a beast that you have seen before.
+          </p>
+        );
+      case 'Barbarian':
+        if (this.props.char.level < 2) return;
+        return (
+          <p>
+            <label>
+              <a
+                target="blank"
+                href="https://www.dndbeyond.com/characters/classes/barbarian#RecklessAttack"
+              >
+                Reckless Attack.
+              </a>
+            </label>
+            This turn, make any melee attacks using strength at advantage, but
+            any attack rolls against you have advantage as well.
           </p>
         );
       default:
@@ -57,10 +78,10 @@ class CombatActionMenu extends Component {
                 target="blank"
                 href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#MakinganAttack"
               >
-                Attack.
+                Attack{this.attackCount()}.
               </a>
             </label>
-            Make one{' '}
+            Make a{' '}
             <a
               target="blank"
               href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#MeleeAttacks"

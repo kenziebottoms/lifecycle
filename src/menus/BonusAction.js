@@ -29,6 +29,30 @@ class BonusActionMenu extends Component {
             Revert to your humanoid form.
           </p>
         );
+      case 'Barbarian':
+        return (
+          <p>
+            <label>
+              Enter a{' '}
+              <a
+                target="blank"
+                href="https://www.dndbeyond.com/characters/classes/barbarian#Rage"
+              >
+                Rage.
+              </a>
+            </label>
+            For the next minute, you have advantage on strength checks and
+            strength saving throws, have resistance to bludgeoning, piercing,
+            and slashing damage, and gain a{' '}
+            <a
+              target="blank"
+              href="https://www.dndbeyond.com/characters/classes/barbarian#TheBarbarianTable"
+            >
+              Rage Damage
+            </a>{' '}
+            bonus to all melee attacks.
+          </p>
+        );
       default:
         console.log(this.props.char.race);
         return;

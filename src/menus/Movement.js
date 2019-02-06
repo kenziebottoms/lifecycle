@@ -41,8 +41,8 @@ class MovementMenu extends Component {
                 className="blue"
                 name="speed"
                 type="number"
-                defaultValue={this.props.char.speed}
-                onBlur={e => this.props.onSpeedChange(e.target.value)}
+                value={this.props.char.speed}
+                onChange={e => this.props.onSpeedChange(e.target.value)}
               />
               <label htmlFor="speed">Base Speed</label>
             </div>
