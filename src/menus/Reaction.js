@@ -24,6 +24,15 @@ class ReactionMenu extends Component {
                   Retaliate.
                 </a>
               </label>
+              <em>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/barbarian#PathoftheBattlerager"
+                >
+                  Battleragers
+                </a>{' '}
+                only.
+              </em>{' '}
               If you take damage from a creature within 5 feet of you, you can
               use your reaction to make a melee weapon attack against the
               creature.

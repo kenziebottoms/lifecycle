@@ -54,7 +54,7 @@ class BonusActionMenu extends Component {
             </p>
           );
           if (this.props.char.level >= 3)
-            actions.push(
+            actions.push([
               <p>
                 <label>
                   <a
@@ -75,19 +75,97 @@ class BonusActionMenu extends Component {
                 </em>{' '}
                 For the rest of your rage, you can make a melee weapon attack as
                 a bonus action each turn. You are Exhausted after the rage ends.
-              </p>
-            );
+              </p>,
+              <p>
+                <label>
+                  <a
+                    target="blank"
+                    href="https://www.dndbeyond.com/characters/classes/barbarian#PathoftheTotemWarrior"
+                  >
+                    Totem Ability.
+                  </a>
+                </label>
+                <em>
+                  <a
+                    target="blank"
+                    href="https://www.dndbeyond.com/characters/classes/barbarian#PathoftheTotemWarrior"
+                  >
+                    Totem Warriors
+                  </a>{' '}
+                  only.
+                </em>{' '}
+                Use the ability granted to you by your totem spirit.
+              </p>,
+              <p>
+                <label>
+                  <a
+                    target="blank"
+                    href="https://www.dndbeyond.com/characters/classes/barbarian#PathoftheBattlerager"
+                  >
+                    Battlerager Armor.
+                  </a>
+                </label>
+                <em>
+                  <a
+                    target="blank"
+                    href="https://www.dndbeyond.com/characters/classes/barbarian#PathoftheBattlerager"
+                  >
+                    Battleragers
+                  </a>{' '}
+                  only.
+                </em>{' '}
+                If you are wearing spiked armor, you can use a bonus action to
+                make a melee weapon attack with your armor spikes against a
+                target within 5 feet of you.
+              </p>,
+              <p>
+                <label>
+                  <a
+                    target="blank"
+                    href="https://www.dndbeyond.com/characters/classes/barbarian#PathoftheStormHerald"
+                  >
+                    Storm Aura.
+                  </a>
+                </label>
+                <em>
+                  <a
+                    target="blank"
+                    href="https://www.dndbeyond.com/characters/classes/barbarian#PathoftheStormHerald"
+                  >
+                    Storm Heralds
+                  </a>{' '}
+                  only.
+                </em>{' '}
+                Reactivate the effect of your chosen{' '}
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/barbarian#PathoftheStormHerald"
+                >
+                  Storm Aura
+                </a>
+                .
+              </p>,
+            ]);
           if (this.props.char.level >= 10)
-            actions.push(
+            actions.push([
               <p>
                 <label>
                   <a
                     target="blank"
                     href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#Dash"
                   >
-                    Dash.
+                    Battlerager Charge.
                   </a>
                 </label>
+                <em>
+                  <a
+                    target="blank"
+                    href="https://www.dndbeyond.com/characters/classes/barbarian#PathoftheBattlerager"
+                  >
+                    Battleragers
+                  </a>{' '}
+                  only.
+                </em>{' '}
                 Move extra distance equal to your{' '}
                 <a
                   href="https://www.dndbeyond.com/compendium/rules/basic-rules/monsters#Speed"
@@ -96,8 +174,30 @@ class BonusActionMenu extends Component {
                   Walking Speed
                 </a>
                 .
-              </p>
-            );
+              </p>,
+              <p>
+                <label>
+                  <a
+                    target="blank"
+                    href="https://www.dndbeyond.com/characters/classes/barbarian#PathoftheZealot"
+                  >
+                    Zealous Presence.
+                  </a>
+                </label>
+                <em>
+                  <a
+                    target="blank"
+                    href="https://www.dndbeyond.com/characters/classes/barbarian#PathoftheZealot"
+                  >
+                    Zealots
+                  </a>{' '}
+                  only.
+                </em>{' '}
+                Unleash a battle cry infused with divine energy. This turn, up
+                to ten other creatures within 60 feet gain advantage on attack
+                rolls and saving throws.
+              </p>,
+            ]);
         }
         break;
       case 'Druid':
@@ -147,7 +247,15 @@ class BonusActionMenu extends Component {
         </header>
         <article>
           {this.classActions()}
-          <p>
+          <p
+            className={
+              (this.props.conditions.indexOf('wild shape') === -1 ||
+                this.props.char.level >= 18) &&
+              this.props.conditions.indexOf('rage') === -1
+                ? ''
+                : 'disabled'
+            }
+          >
             <label>
               <a
                 target="blank"
