@@ -13,46 +13,7 @@ class BonusActionMenu extends Component {
     let actions = [];
     switch (this.props.char.class) {
       case 'Barbarian':
-        actions.push(
-          [
-            <p>
-              <label>
-                End{' '}
-                <a
-                  target="blank"
-                  href="https://www.dndbeyond.com/characters/classes/barbarian#Rage"
-                >
-                  Rage.
-                </a>
-              </label>
-              End your rage early.
-            </p>,
-          ],
-          [
-            <p>
-              <label>
-                <a
-                  target="blank"
-                  href="https://www.dndbeyond.com/characters/classes/barbarian#Rage"
-                >
-                  Frenzy.
-                </a>
-              </label>
-              <em>
-                <a
-                  target="blank"
-                  href="https://www.dndbeyond.com/characters/classes/barbarian#PathoftheBerserker"
-                >
-                  Berserkers
-                </a>{' '}
-                only.
-              </em>{' '}
-              For the rest of your rage, you can make a melee weapon attack as a
-              bonus action each turn. You are Exhausted after the rage ends.
-            </p>,
-          ]
-        );
-        if (this.props.conditions.indexOf('rage') === -1)
+        if (this.props.conditions.indexOf('rage') === -1) {
           actions.push(
             <p>
               <label>
@@ -77,6 +38,67 @@ class BonusActionMenu extends Component {
               per long rest.
             </p>
           );
+        } else {
+          actions.push(
+            <p>
+              <label>
+                End{' '}
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/barbarian#Rage"
+                >
+                  Rage.
+                </a>
+              </label>
+              End your rage early.
+            </p>
+          );
+          if (this.props.char.level >= 3)
+            actions.push(
+              <p>
+                <label>
+                  <a
+                    target="blank"
+                    href="https://www.dndbeyond.com/characters/classes/barbarian#Rage"
+                  >
+                    Frenzy.
+                  </a>
+                </label>
+                <em>
+                  <a
+                    target="blank"
+                    href="https://www.dndbeyond.com/characters/classes/barbarian#PathoftheBerserker"
+                  >
+                    Berserkers
+                  </a>{' '}
+                  only.
+                </em>{' '}
+                For the rest of your rage, you can make a melee weapon attack as
+                a bonus action each turn. You are Exhausted after the rage ends.
+              </p>
+            );
+          if (this.props.char.level >= 10)
+            actions.push(
+              <p>
+                <label>
+                  <a
+                    target="blank"
+                    href="https://www.dndbeyond.com/compendium/rules/basic-rules/combat#Dash"
+                  >
+                    Dash.
+                  </a>
+                </label>
+                Move extra distance equal to your{' '}
+                <a
+                  href="https://www.dndbeyond.com/compendium/rules/basic-rules/monsters#Speed"
+                  target="blank"
+                >
+                  Walking Speed
+                </a>
+                .
+              </p>
+            );
+        }
         break;
       case 'Druid':
         if (this.props.conditions.indexOf('wild shape') !== -1)
