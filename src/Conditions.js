@@ -28,6 +28,7 @@ class Conditions extends Component {
     switch (this.props.char.class) {
       case 'Barbarian':
         conditions.push('rage');
+        conditions.push('frenzy');
         break;
       case 'Druid':
         if (this.props.char.level >= 2) conditions.push('wild shape');

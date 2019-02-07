@@ -9,7 +9,32 @@ class ReactionMenu extends Component {
     if (this.props.disabled) classes += 'disabled ';
     return classes;
   }
-
+  classActions() {
+    let actions = [];
+    switch (this.props.char.class) {
+      case 'Barbarian':
+        if (this.props.char.level >= 14)
+          actions.push(
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/barbarian#RecklessAttack"
+                >
+                  Retaliate.
+                </a>
+              </label>
+              If you take damage from a creature within 5 feet of you, you can
+              use your reaction to make a melee weapon attack against the
+              creature.
+            </p>
+          );
+        break;
+      default:
+        break;
+    }
+    return actions;
+  }
   render() {
     if (!this.props.char || this.props.turn < turnStages.INACTIVE) return null;
     return (
@@ -33,6 +58,7 @@ class ReactionMenu extends Component {
           </h2>
         </header>
         <article>
+          {this.classActions()}
           <p>
             <label>
               <a

@@ -7,47 +7,74 @@ class CombatActionMenu extends Component {
     return '';
   }
   classActions() {
+    let actions = [];
     switch (this.props.char.class) {
-      case 'Druid':
-        if (this.props.char.level < 2) return;
-        return (
-          <p
-            className={
-              this.props.conditions.indexOf('wild shape') === -1
-                ? ''
-                : 'disabled'
-            }
-          >
-            <label>
-              <a
-                target="blank"
-                href="https://www.dndbeyond.com/characters/classes/druid#WildShape"
-              >
-                Wild Shape.
-              </a>
-            </label>
-            Magically assume the shape of a beast that you have seen before.
-          </p>
-        );
       case 'Barbarian':
-        if (this.props.char.level < 2) return;
-        return (
-          <p>
-            <label>
-              <a
-                target="blank"
-                href="https://www.dndbeyond.com/characters/classes/barbarian#RecklessAttack"
-              >
-                Reckless Attack.
-              </a>
-            </label>
-            This turn, make any melee attacks using strength at advantage, but
-            any attack rolls against you have advantage as well.
-          </p>
-        );
+        if (this.props.char.level >= 2)
+          actions.push(
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/barbarian#RecklessAttack"
+                >
+                  Reckless Attack.
+                </a>
+              </label>
+              This turn, make any melee attacks using strength at advantage, but
+              any attack rolls against you have advantage as well.
+            </p>
+          );
+        if (this.props.char.level >= 10)
+          actions.push(
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/barbarian#PathoftheBerserker"
+                >
+                  Intimidate.
+                </a>
+              </label>
+              <em>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/barbarian#PathoftheBerserker"
+                >
+                  Berserkers
+                </a>{' '}
+                only.
+              </em>{' '}
+              Attempt to frighten someone with your menacing presence.
+            </p>
+          );
+        break;
+      case 'Druid':
+        if (this.props.char.level >= 2)
+          actions.push(
+            <p
+              className={
+                this.props.conditions.indexOf('wild shape') === -1
+                  ? ''
+                  : 'disabled'
+              }
+            >
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/druid#WildShape"
+                >
+                  Wild Shape.
+                </a>
+              </label>
+              Magically assume the shape of a beast that you have seen before.
+            </p>
+          );
+        break;
       default:
-        return;
+        break;
     }
+    return actions;
   }
 
   render() {
