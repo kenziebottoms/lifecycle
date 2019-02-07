@@ -9,7 +9,6 @@ class BonusActionMenu extends Component {
     if (this.props.disabled) classes += 'disabled ';
     return classes;
   }
-
   classActions() {
     let actions = [];
     switch (this.props.char.class) {
@@ -80,10 +79,7 @@ class BonusActionMenu extends Component {
           );
         break;
       case 'Druid':
-        if (
-          this.props.char.level >= 2 &&
-          this.props.conditions.indexOf('wild shape') === -1
-        )
+        if (this.props.conditions.indexOf('wild shape') !== -1)
           actions.push(
             <p>
               <label>
