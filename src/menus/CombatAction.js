@@ -99,8 +99,9 @@ class CombatActionMenu extends Component {
           </p>
           <p
             className={
-              this.props.conditions.indexOf('wild shape') === -1 ||
-              this.props.char.level >= 18
+              (this.props.conditions.indexOf('wild shape') === -1 ||
+                this.props.char.level >= 18) &&
+              this.props.conditions.indexOf('rage') === -1
                 ? ''
                 : 'disabled'
             }

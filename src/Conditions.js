@@ -25,8 +25,15 @@ const conditions = [
 class Conditions extends Component {
   constructor(props) {
     super(props);
-    if (this.props.char.class === 'Druid' && this.props.char.level >= 2) {
-      conditions.push('wild shape');
+    switch (this.props.char.class) {
+      case 'Barbarian':
+        conditions.push('rage');
+        break;
+      case 'Druid':
+        if (this.props.char.level >= 2) conditions.push('wild shape');
+        break;
+      default:
+        break;
     }
   }
 

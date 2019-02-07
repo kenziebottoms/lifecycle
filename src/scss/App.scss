@@ -45,6 +45,10 @@ a[target='blank'] {
     cursor: help;
 }
 
+em {
+    color: $g4;
+}
+
 p.disabled {
     color: $g3;
     label {
@@ -57,7 +61,7 @@ p.disabled {
     height: 100vh;
     display: grid;
     grid-template-rows: repeat(4, auto);
-    >header {
+    > header {
         background: $g1;
         display: flex;
         justify-content: space-between;
@@ -83,7 +87,7 @@ p.disabled {
             margin-left: 0.65rem;
         }
     }
-    >menu {
+    > menu {
         // root-level menus
         &:not(.active) {
             article,
@@ -91,7 +95,7 @@ p.disabled {
                 display: none;
             }
         }
-        >header {
+        > header {
             white-space: nowrap;
             background: $g1;
             margin: 0 1px;
@@ -105,19 +109,19 @@ p.disabled {
         &.disabled {
             opacity: 0.4;
             justify-content: center;
-            >header {
+            > header {
                 background: $g4;
                 text-align: center;
                 color: $white;
-                >h2 {
+                > h2 {
                     color: $white;
                 }
             }
         }
         &.active {
-            >header {
+            > header {
                 background: $blue;
-                >h2 {
+                > h2 {
                     color: $white;
                 }
             }

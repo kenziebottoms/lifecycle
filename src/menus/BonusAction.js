@@ -12,6 +12,68 @@ class BonusActionMenu extends Component {
 
   classActions() {
     switch (this.props.char.class) {
+      case 'Barbarian':
+        if (this.props.conditions.indexOf('rage') === -1)
+          return (
+            <p>
+              <label>
+                Enter a{' '}
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/barbarian#Rage"
+                >
+                  Rage.
+                </a>
+              </label>
+              For the next minute, you have advantage on strength checks and
+              strength saving throws, have resistance to bludgeoning, piercing,
+              and slashing damage, and gain a{' '}
+              <a
+                target="blank"
+                href="https://www.dndbeyond.com/characters/classes/barbarian#TheBarbarianTable"
+              >
+                Rage Damage
+              </a>{' '}
+              bonus to all melee attacks. Uses are limited according to level
+              per long rest.
+            </p>
+          );
+        return (
+          <span>
+            <p>
+              <label>
+                End{' '}
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/barbarian#Rage"
+                >
+                  Rage.
+                </a>
+              </label>
+              End your rage early.
+            </p>
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/barbarian#Rage"
+                >
+                  Frenzy.
+                </a>
+              </label>
+              <em>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/barbarian#PathoftheBerserker"
+                >
+                  Berserkers
+                </a>{' '}
+                only.
+              </em>{' '}
+              End your rage early.
+            </p>
+          </span>
+        );
       case 'Druid':
         if (this.props.char.level < 2) return null;
         if (this.props.conditions.indexOf('wild shape') === -1) return null;
@@ -27,30 +89,6 @@ class BonusActionMenu extends Component {
               </a>
             </label>
             Revert to your humanoid form.
-          </p>
-        );
-      case 'Barbarian':
-        return (
-          <p>
-            <label>
-              Enter a{' '}
-              <a
-                target="blank"
-                href="https://www.dndbeyond.com/characters/classes/barbarian#Rage"
-              >
-                Rage.
-              </a>
-            </label>
-            For the next minute, you have advantage on strength checks and
-            strength saving throws, have resistance to bludgeoning, piercing,
-            and slashing damage, and gain a{' '}
-            <a
-              target="blank"
-              href="https://www.dndbeyond.com/characters/classes/barbarian#TheBarbarianTable"
-            >
-              Rage Damage
-            </a>{' '}
-            bonus to all melee attacks.
           </p>
         );
       default:
