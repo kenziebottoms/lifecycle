@@ -200,6 +200,125 @@ class BonusActionMenu extends Component {
             ]);
         }
         break;
+      case 'Bard':
+        actions.push(
+          <p>
+            <label>
+              <a
+                target="blank"
+                href="https://www.dndbeyond.com/characters/classes/bard#BardicInspiration"
+              >
+                Bardic Inspiration.
+              </a>
+            </label>
+            For the next 10 minutes, one creature within 60 feet can add one
+            Inspiration die to one ability check, attack roll, or saving throw.
+            Uses are limited according to level per long rest.
+          </p>
+        );
+        if (this.props.char.level >= 3)
+          actions.push(
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofGlamour"
+                >
+                  Mantle of Inspiration.
+                </a>
+              </label>
+              <em>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofGlamour"
+                >
+                  College of Glamour
+                </a>{' '}
+                only.
+              </em>{' '}
+              A limited number of creatures according to level within 60 feet
+              gain 5 temporary hit points and a free movement Reaction.
+            </p>,
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofGlamour"
+                >
+                  Enthralling Performance.
+                </a>
+              </label>
+              <em>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofGlamour"
+                >
+                  College of Glamour
+                </a>{' '}
+                only.
+              </em>{' '}
+              TODO.
+            </p>
+          );
+        if (this.props.char.level >= 6)
+          actions.push(
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#Countercharm"
+                >
+                  Countercharm.
+                </a>
+              </label>
+              This turn, you and any friendly creatures within 30 feet have
+              advantage on saving throws against being frightened or charmed.
+            </p>,
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofGlamour"
+                >
+                  Mantle of Majesty.
+                </a>
+              </label>
+              <em>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofGlamour"
+                >
+                  College of Glamour
+                </a>{' '}
+                only.
+              </em>{' '}
+              TODO.
+            </p>
+          );
+        if (this.props.char.level >= 14)
+          actions.push(
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofGlamour"
+                >
+                  Unbreakable Majesty.
+                </a>
+              </label>
+              <em>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofGlamour"
+                >
+                  College of Glamour
+                </a>{' '}
+                only.
+              </em>{' '}
+              TODO.
+            </p>
+          );
+        break;
       case 'Druid':
         if (this.props.conditions.indexOf('wild shape') !== -1)
           actions.push(

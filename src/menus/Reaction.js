@@ -66,6 +66,30 @@ class ReactionMenu extends Component {
             </p>
           );
         break;
+      case 'Bard':
+        if (this.props.char.level >= 3)
+          actions.push(
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofLore"
+                >
+                  Cutting Words.
+                </a>
+              </label>
+              <em>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofLore"
+                >
+                  College of Lore
+                </a>{' '}
+                only.
+              </em>{' '}
+              TODO.
+            </p>
+          );
       default:
         break;
     }
