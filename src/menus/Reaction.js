@@ -29,6 +29,33 @@ class ReactionMenu extends Component {
               creature.
             </p>
           );
+        if (
+          this.props.conditions.indexOf('rage') !== -1 &&
+          this.props.char.level >= 6
+        )
+          actions.push(
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/barbarian#Rage"
+                >
+                  Spirit Shield.
+                </a>
+              </label>
+              <em>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/barbarian#PathoftheAncestralGuardian"
+                >
+                  Ancestral Guardians
+                </a>{' '}
+                only.
+              </em>{' '}
+              You can use your reaction to reduce the damage done to a creature
+              within 30 feet.
+            </p>
+          );
         break;
       default:
         break;

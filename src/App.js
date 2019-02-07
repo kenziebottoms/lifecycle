@@ -95,6 +95,7 @@ class App extends Component {
         <ReactionMenu
           turn={this.state.turn}
           char={this.state.char}
+          conditions={this.state.conditions}
           active={Math.floor(this.state.turn) === turnStages.REACTION}
           disabled={Math.floor(this.state.turn) !== turnStages.REACTION}
           checked={Math.floor(this.state.turn) > turnStages.REACTION}
