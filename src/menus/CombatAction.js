@@ -2,9 +2,15 @@ import React, { Component } from 'react';
 
 class CombatActionMenu extends Component {
   attackCount() {
-    if (this.props.char.class === 'Barbarian' && this.props.char.level >= 5)
-      return ' (2)';
-    return '';
+    switch (this.props.char.class) {
+      case 'Barbarian':
+        if (this.props.char.level >= 5) return ' (2)';
+      case 'Bard':
+        if (this.props.char.level >= 6)
+          return ' (2 if College of Swords or Valor)';
+      default:
+        return '';
+    }
   }
   classActions() {
     let actions = [];
@@ -48,6 +54,8 @@ class CombatActionMenu extends Component {
               Attempt to frighten someone with your menacing presence.
             </p>
           );
+        break;
+      case 'Bard':
         break;
       case 'Druid':
         if (this.props.char.level >= 2)

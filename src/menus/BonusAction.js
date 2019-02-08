@@ -316,6 +316,34 @@ class BonusActionMenu extends Component {
                 only.
               </em>{' '}
               TODO.
+            </p>,
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofValor"
+                >
+                  Attack.
+                </a>
+              </label>
+              <em>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofValor"
+                >
+                  College of Valor
+                </a>{' '}
+                only.
+              </em>{' '}
+              Make a weapon attack <strong>if</strong> you used your action to
+              cast a{' '}
+              <a
+                target="blank"
+                href="https://www.dndbeyond.com/spells/class/bard"
+              >
+                Bard Spell
+              </a>
+              .
             </p>
           );
         break;

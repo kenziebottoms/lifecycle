@@ -87,7 +87,16 @@ class ReactionMenu extends Component {
                 </a>{' '}
                 only.
               </em>{' '}
-              TODO.
+              Subtract an Inspiration die from the attack roll, ability check,
+              or damage roll of a creature within 60 feet. This counts as one
+              use of{' '}
+              <a
+                target="blank"
+                href="https://www.dndbeyond.com/characters/classes/bard#BardicInspiration"
+              >
+                Bardic Inspiration
+              </a>
+              .
             </p>
           );
       default:
