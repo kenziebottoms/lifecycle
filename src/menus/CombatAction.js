@@ -100,9 +100,94 @@ class CombatActionMenu extends Component {
                 </a>{' '}
                 only.
               </em>{' '}
-              Attempt to charm a creature within 30 feet.
+              Attempt to{' '}
+              <a
+                target="blank"
+                href="https://www.dndbeyond.com/compendium/rules/basic-rules/appendix-a-conditions#Charmed"
+              >
+                Charm
+              </a>{' '}
+              a creature within 30 feet.
             </p>
           );
+        break;
+      case 'Cleric':
+        if (this.props.char.level >= 5) {
+          actions.push(
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/cleric#DestroyUndead"
+                >
+                  Destroy Undead.
+                </a>
+              </label>
+              You present your holy symbol and speak a prayer censuring the
+              undead. Attempt to effectively{' '}
+              <a
+                target="blank"
+                href="https://www.dndbeyond.com/compendium/rules/basic-rules/appendix-a-conditions#Frightened"
+              >
+                Frighten
+              </a>{' '}
+              any undead within 30 feet. Some undead are automatically destroyed
+              if they fail their saving throws.
+            </p>
+          );
+        } else if (this.props.char.level >= 2) {
+          actions.push(
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/cleric#ChannelDivinity"
+                >
+                  Turn Undead.
+                </a>
+              </label>
+              You present your holy symbol and speak a prayer censuring the
+              undead. Attempt to effectively{' '}
+              <a
+                target="blank"
+                href="https://www.dndbeyond.com/compendium/rules/basic-rules/appendix-a-conditions#Frightened"
+              >
+                Frighten
+              </a>{' '}
+              any undead within 30 feet.
+            </p>
+          );
+        }
+        if (this.props.char.level === 20) {
+          actions.push(
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/cleric#DivineIntervention"
+                >
+                  Divine Intervention.
+                </a>
+              </label>
+              Call on your deity to intervene. Usable only once every 7 days.
+            </p>
+          );
+        } else if (this.props.char.level >= 10) {
+          actions.push(
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/cleric#DivineIntervention"
+                >
+                  Divine Intervention.
+                </a>
+              </label>
+              Call on your deity to intervene. If successful, usable only once
+              every 7 days. Otherwise, usable once per long rest.
+            </p>
+          );
+        }
         break;
       case 'Druid':
         if (this.props.char.level >= 2)
