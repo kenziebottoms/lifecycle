@@ -99,6 +99,30 @@ class ReactionMenu extends Component {
               .
             </p>
           );
+        if (this.props.char.level >= 6)
+          actions.push(
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofWhispers"
+                >
+                  Mantle of Whispers.
+                </a>
+              </label>
+              <em>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofWhispers"
+                >
+                  College of Whispers
+                </a>{' '}
+                only.
+              </em>{' '}
+              Capture the shadow of a humanoid that has just died within 30 feet
+              for later use.
+            </p>
+          );
       default:
         break;
     }

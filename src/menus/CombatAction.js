@@ -56,6 +56,53 @@ class CombatActionMenu extends Component {
           );
         break;
       case 'Bard':
+        if (this.props.char.level >= 6)
+          actions.push(
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofWhispers"
+                >
+                  Mantle of Whispers.
+                </a>
+              </label>
+              <em>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofWhispers"
+                >
+                  College of Whispers
+                </a>{' '}
+                only.
+              </em>{' '}
+              If you have already captured the shadow of a recently deceased
+              humanoid, you may use it as a disguise for up to an hour.
+            </p>
+          );
+        if (this.props.char.level >= 14)
+          actions.push(
+            <p>
+              <label>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofWhispers"
+                >
+                  Shadow Lore.
+                </a>
+              </label>
+              <em>
+                <a
+                  target="blank"
+                  href="https://www.dndbeyond.com/characters/classes/bard#CollegeofWhispers"
+                >
+                  College of Whispers
+                </a>{' '}
+                only.
+              </em>{' '}
+              Attempt to charm a creature within 30 feet.
+            </p>
+          );
         break;
       case 'Druid':
         if (this.props.char.level >= 2)
